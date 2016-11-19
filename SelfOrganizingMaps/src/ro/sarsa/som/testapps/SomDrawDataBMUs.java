@@ -13,8 +13,7 @@ import ro.sarsa.som.umatrix.LabelApparenceProvider;
 
 public class SomDrawDataBMUs {
 
-	public static void drawData(Graphics g, int w, int h, SOM som,
-			SOMTrainData trD, LabelApparenceProvider lblAp) {
+	public static void drawData(Graphics g, int w, int h, SOM som, SOMTrainData trD, LabelApparenceProvider lblAp) {
 		System.out.println("Mda");
 
 		// obtin lista de BMU
@@ -39,8 +38,8 @@ public class SomDrawDataBMUs {
 		}
 	}
 
-	private static void drawString(Graphics g, int w, int h, SOMTopology topo,
-			int r, BMU bmu, LabelApparenceProvider lblAp) {
+	private static void drawString(Graphics g, int w, int h, SOMTopology topo, int r, BMU bmu,
+			LabelApparenceProvider lblAp) {
 		if (r < 0) {
 			return;
 		}
@@ -54,8 +53,7 @@ public class SomDrawDataBMUs {
 
 	}
 
-	public static void drawData(Graphics g, int w, int h, SOM som,
-			SOMTrainData trD) {
+	public static void drawData(Graphics g, int w, int h, SOM som, SOMTrainData trD) {
 
 		// optin lista de BMU
 		List<BMU> bmus = BMU.getBMUS(trD, som, som.getDistance());
@@ -77,8 +75,8 @@ public class SomDrawDataBMUs {
 		}
 	}
 
-	private static void drawCircle(Graphics g, int w, int h, SOMTopology topo,
-			int r, BMU bmu, LabelApparenceProvider lblAp) {
+	private static void drawCircle(Graphics g, int w, int h, SOMTopology topo, int r, BMU bmu,
+			LabelApparenceProvider lblAp) {
 		if (r < 0) {
 			return;
 		}

@@ -29,8 +29,7 @@ public class GraphEnviroment extends Enviroment {
 	public GraphEnviroment() {
 	}
 
-	public GraphEnviroment(boolean directed, int nrStates,
-			GraphState initialState, GraphState finalState) {
+	public GraphEnviroment(boolean directed, int nrStates, GraphState initialState, GraphState finalState) {
 		this.directed = directed;
 		this.nrStates = nrStates;
 		this.initialState = initialState;
@@ -54,26 +53,22 @@ public class GraphEnviroment extends Enviroment {
 				int ii = i - 1;
 				int jj = j;
 				if (isValidLineCol(ii, jj, dim)) {
-					setConected(node, Direction.N, new GraphState(
-							ii * dim + jj, dim));
+					setConected(node, Direction.N, new GraphState(ii * dim + jj, dim));
 				}
 				ii = i + 1;
 				jj = j;
 				if (isValidLineCol(ii, jj, dim)) {
-					setConected(node, Direction.S, new GraphState(
-							ii * dim + jj, dim));
+					setConected(node, Direction.S, new GraphState(ii * dim + jj, dim));
 				}
 				ii = i;
 				jj = j - 1;
 				if (isValidLineCol(ii, jj, dim)) {
-					setConected(node, Direction.V, new GraphState(
-							ii * dim + jj, dim));
+					setConected(node, Direction.V, new GraphState(ii * dim + jj, dim));
 				}
 				ii = i;
 				jj = j + 1;
 				if (isValidLineCol(ii, jj, dim)) {
-					setConected(node, Direction.E, new GraphState(
-							ii * dim + jj, dim));
+					setConected(node, Direction.E, new GraphState(ii * dim + jj, dim));
 				}
 			}
 		}
@@ -98,45 +93,38 @@ public class GraphEnviroment extends Enviroment {
 				int ii = i - 1;
 				int jj = j - 1;
 				if (isValidLineCol(ii, jj, dim)) {
-					setConected(node, Direction.NV, new GraphState(ii * dim
-							+ jj, dim));
+					setConected(node, Direction.NV, new GraphState(ii * dim + jj, dim));
 				}
 				ii = i + 1;
 				jj = j - 1;
 				if (isValidLineCol(ii, jj, dim)) {
-					setConected(node, Direction.SV, new GraphState(ii * dim
-							+ jj, dim));
+					setConected(node, Direction.SV, new GraphState(ii * dim + jj, dim));
 				}
 				ii = i + 1;
 				jj = j + 1;
 				if (isValidLineCol(ii, jj, dim)) {
-					setConected(node, Direction.SE, new GraphState(ii * dim
-							+ jj, dim));
+					setConected(node, Direction.SE, new GraphState(ii * dim + jj, dim));
 				}
 				ii = i - 1;
 				jj = j + 1;
 				if (isValidLineCol(ii, jj, dim)) {
-					setConected(node, Direction.NE, new GraphState(ii * dim
-							+ jj, dim));
+					setConected(node, Direction.NE, new GraphState(ii * dim + jj, dim));
 				}
 			}
 		}
 	}
 
 	public boolean isValid(State state) {
-		return ((GraphState) state).rank() >= 0
-				&& ((GraphState) state).rank() < nrStates;
+		return ((GraphState) state).rank() >= 0 && ((GraphState) state).rank() < nrStates;
 	}
 
 	public void setConected(State state1, Direction direction, State state2) {
 		if (!isValid(state1) || !isValid(state2)) {
 			return;
 		}
-		adiacencyMatrx[((GraphState) state1).rank()][((GraphState) state2)
-				.rank()] = direction;
+		adiacencyMatrx[((GraphState) state1).rank()][((GraphState) state2).rank()] = direction;
 		if (!directed) {
-			adiacencyMatrx[((GraphState) state2).rank()][((GraphState) state1)
-					.rank()] = direction;
+			adiacencyMatrx[((GraphState) state2).rank()][((GraphState) state1).rank()] = direction;
 		}
 	}
 
@@ -149,8 +137,7 @@ public class GraphEnviroment extends Enviroment {
 	public List<Action> getPosibleActions(State state, History hist) {
 		List<Action> rez = new ArrayList<Action>(nrStates);
 		for (int i = 0; i < nrStates; i++) {
-			Direction direction = connected((GraphState) state, new GraphState(
-					i, dim));
+			Direction direction = connected((GraphState) state, new GraphState(i, dim));
 			if (direction != null) {
 				rez.add(new GraphAction(direction));
 			}

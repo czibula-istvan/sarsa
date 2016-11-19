@@ -40,8 +40,7 @@ public class TestFuzzySOMColors extends JPanel implements SOMTrainingListener {
 		// desenez fiecare neuron
 		int w = getWidth() - 10;
 		int h = getHeight() - 10;
-		drColorsNetw.drawNetwork(g, w, h, som, new TrainIterationSnapshoot(bmu,
-				input, neighbors, iteration));
+		drColorsNetw.drawNetwork(g, w, h, som, new TrainIterationSnapshoot(bmu, input, neighbors, iteration));
 	}
 
 	public static void main(String[] args) {
@@ -72,8 +71,7 @@ public class TestFuzzySOMColors extends JPanel implements SOMTrainingListener {
 						long time = System.currentTimeMillis();
 						SOMTrainData trD = new RandomColorSetTrainingData();
 						fsom.train(1500, trD, 0.7, testSom);
-						System.out.println("Time:"
-								+ (System.currentTimeMillis() - time));
+						System.out.println("Time:" + (System.currentTimeMillis() - time));
 						// som.train(3000, new PointTrainDAta(), 0.7, testSom);
 						UMatrixFrame up = new UMatrixFrame(fsom, trD);
 
@@ -85,8 +83,7 @@ public class TestFuzzySOMColors extends JPanel implements SOMTrainingListener {
 	}
 
 	@Override
-	public void trainStepPerformed(int iteration, double[] input, BMU bmu,
-			List<NeighborSOMNeuron> neighbors) {
+	public void trainStepPerformed(int iteration, double[] input, BMU bmu, List<NeighborSOMNeuron> neighbors) {
 		this.bmu = bmu;
 		this.neighbors = neighbors;
 		this.input = input;

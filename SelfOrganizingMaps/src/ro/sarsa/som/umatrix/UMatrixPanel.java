@@ -43,8 +43,7 @@ public class UMatrixPanel extends JPanel implements SOMTrainingListener {
 		this(som, trD, new DefaultLabelApparenceProvider());
 	}
 
-	public UMatrixPanel(SOM som, SOMTrainData trD,
-			LabelApparenceProvider labelAP) {
+	public UMatrixPanel(SOM som, SOMTrainData trD, LabelApparenceProvider labelAP) {
 		this.som = som;
 		this.topo = som.getTopo();
 		this.trD = trD;
@@ -65,8 +64,7 @@ public class UMatrixPanel extends JPanel implements SOMTrainingListener {
 		int h = getHeight() - 10;
 		long time = System.currentTimeMillis();
 		List<UMatrixValue> umvs = uMatr.getNormalizedUMatrix();
-		System.out
-				.println("umatrx time:" + (System.currentTimeMillis() - time));
+		System.out.println("umatrx time:" + (System.currentTimeMillis() - time));
 		for (int i = 0; i < umvs.size(); i++) {
 			UMatrixValue umv = umvs.get(i);
 			SOMNeuron n = umv.getNeuron();
@@ -105,18 +103,15 @@ public class UMatrixPanel extends JPanel implements SOMTrainingListener {
 			Color color = getColor(umv);
 			g.setColor(color);
 			double[] center = topo.getNeuronCenter(w, h, n);
-			g2d.setTransform(AffineTransform.getTranslateInstance(center[0],
-					center[1]));
+			g2d.setTransform(AffineTransform.getTranslateInstance(center[0], center[1]));
 			g2d.fill(s);
 			g2d.setColor(Color.black);
 			g2d.draw(s);
 		}
 		g2d.setTransform(AffineTransform.getTranslateInstance(0, 0));
-		System.out.println("drawUValstime:"
-				+ (System.currentTimeMillis() - time));
+		System.out.println("drawUValstime:" + (System.currentTimeMillis() - time));
 		SomDrawDataBMUs.drawData(g, w, h, som, trD, labelAP);
-		System.out.println("drawUValstime+drawData:"
-				+ (System.currentTimeMillis() - time));
+		System.out.println("drawUValstime+drawData:" + (System.currentTimeMillis() - time));
 	}
 
 	private Color getColor(UMatrixValue umv) {
@@ -127,8 +122,7 @@ public class UMatrixPanel extends JPanel implements SOMTrainingListener {
 	}
 
 	@Override
-	public void trainStepPerformed(int iteration, double[] input, BMU bmu,
-			List<NeighborSOMNeuron> neighbors) {
+	public void trainStepPerformed(int iteration, double[] input, BMU bmu, List<NeighborSOMNeuron> neighbors) {
 		try {
 			SwingUtilities.invokeAndWait(new Runnable() {
 				@Override

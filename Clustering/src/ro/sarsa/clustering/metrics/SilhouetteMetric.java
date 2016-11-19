@@ -35,8 +35,7 @@ public class SilhouetteMetric<T> implements PartitionMetric<T> {
 				continue;
 			}
 
-			avgDisin += dist.distance(vmi, vectModel.getVectorialModel(cl
-					.get(j)));
+			avgDisin += dist.distance(vmi, vectModel.getVectorialModel(cl.get(j)));
 		}
 		if (cl.getNRObjs() == 1) {
 			avgDisin = 0;
@@ -62,8 +61,7 @@ public class SilhouetteMetric<T> implements PartitionMetric<T> {
 	public double comp(Cluster<T> cl, double[] vmi) {
 		double avgDisin = 0;
 		for (int j = 0; j < cl.getNRObjs(); j++) {
-			avgDisin += dist.distance(vmi, vectModel.getVectorialModel(cl
-					.get(j)));
+			avgDisin += dist.distance(vmi, vectModel.getVectorialModel(cl.get(j)));
 		}
 		avgDisin = avgDisin / (cl.getNRObjs());
 		return avgDisin;

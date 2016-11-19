@@ -11,8 +11,7 @@ import ro.sarsa.som.topology.SOMTopology;
 
 public class Draw2DNetworkNet implements INetworkDraw {
 
-	public void drawNetwork(Graphics g, int w, int h, SOM som,
-			TrainIterationSnapshoot trSnap) {
+	public void drawNetwork(Graphics g, int w, int h, SOM som, TrainIterationSnapshoot trSnap) {
 		SOMTopology topo = som.getTopo();
 		g.setColor(Color.green);
 		for (int i = 0; i < topo.getNrNeurons(); i++) {
@@ -27,8 +26,7 @@ public class Draw2DNetworkNet implements INetworkDraw {
 		g.setColor(Color.yellow);
 		if (trSnap.getNeighbors() != null) {
 			for (int i = 0; i < trSnap.getNeighbors().size(); i++) {
-				drawNeuron(g, w, h, trSnap.getNeighbors().get(i).getNeuron(),
-						topo);
+				drawNeuron(g, w, h, trSnap.getNeighbors().get(i).getNeuron(), topo);
 			}
 		}
 		// desenez inputul
@@ -41,16 +39,14 @@ public class Draw2DNetworkNet implements INetworkDraw {
 		g.drawString(trSnap.getIteration() + " iter", 10, 10);
 	}
 
-	private void drawNeuron(Graphics g, int w, int h, SOMNeuron neu,
-			SOMTopology topo) {
+	private void drawNeuron(Graphics g, int w, int h, SOMNeuron neu, SOMTopology topo) {
 
 		// desenez si linii care le uneste cu vecini
 		Color c = g.getColor();
 		g.setColor(Color.black.brighter().brighter());
 		List<NeighborSOMNeuron> neighbors = topo.getImediateNeighbors(neu);
 		for (int i = 0; i < neighbors.size(); i++) {
-			drawLine(g, w, h, neu.getWeights(), neighbors.get(i).getNeuron()
-					.getWeights());
+			drawLine(g, w, h, neu.getWeights(), neighbors.get(i).getNeuron().getWeights());
 		}
 		g.setColor(c);
 		double xy[] = neu.getWeights();

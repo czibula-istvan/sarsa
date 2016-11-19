@@ -7,7 +7,8 @@ public interface RLTrainListener {
 	 * 
 	 * @param ord
 	 * @param total
-	 * @param lastEpochHistory - history of the last epoch (!= from the learned policy)
+	 * @param lastEpochHistory
+	 *            - history of the last epoch (!= from the learned policy)
 	 * @return the sampling reate (how often this metod will be called)
 	 */
 	public int epoch(int ord, int total, History lastEpochHistory);

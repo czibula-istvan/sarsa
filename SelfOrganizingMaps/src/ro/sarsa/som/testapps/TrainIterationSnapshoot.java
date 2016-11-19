@@ -11,8 +11,7 @@ public class TrainIterationSnapshoot {
 	private List<NeighborSOMNeuron> neighbors;
 	private int iteration;
 
-	public TrainIterationSnapshoot(BMU bmu2, double[] input2,
-			List<NeighborSOMNeuron> neighbors2, int iteration2) {
+	public TrainIterationSnapshoot(BMU bmu2, double[] input2, List<NeighborSOMNeuron> neighbors2, int iteration2) {
 		this.bmu = bmu2;
 		this.input = input2;
 		this.neighbors = neighbors2;

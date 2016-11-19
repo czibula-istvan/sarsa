@@ -38,11 +38,11 @@ public class UMatrixPanel_back extends JPanel implements SOMTrainingListener {
 		uMatr = new SOMUMatrix(topo);
 
 		cg = new ColorGradient();
-//		cg.addPoint(Color.yellow);
-//		cg.addPoint(Color.red);
+		// cg.addPoint(Color.yellow);
+		// cg.addPoint(Color.red);
 
-		 cg.addPoint(Color.black);
-		 cg.addPoint(Color.white);
+		cg.addPoint(Color.black);
+		cg.addPoint(Color.white);
 
 		// cg.addPoint(Color.red);
 		// cg.addPoint(Color.yellow);
@@ -77,8 +77,7 @@ public class UMatrixPanel_back extends JPanel implements SOMTrainingListener {
 	}
 
 	@Override
-	public void trainStepPerformed(int iteration, double[] input, BMU bmu,
-			List<NeighborSOMNeuron> neighbors) {
+	public void trainStepPerformed(int iteration, double[] input, BMU bmu, List<NeighborSOMNeuron> neighbors) {
 		try {
 			SwingUtilities.invokeAndWait(new Runnable() {
 				@Override

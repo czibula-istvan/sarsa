@@ -44,5 +44,5 @@ public class EpsilonGreedyPolicy implements ActionSelectionPolicy {
 		int poz = rnd.nextInt(posActs.size());
 		return posActs.get(poz);
 	}
-	
+
 }

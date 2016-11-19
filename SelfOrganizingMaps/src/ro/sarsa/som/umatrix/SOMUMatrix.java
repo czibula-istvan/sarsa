@@ -35,14 +35,12 @@ public class SOMUMatrix {
 	}
 
 	public List<UMatrixValue> getNormalizedUMatrix() {
-		List<UMatrixValue> umatrix = new ArrayList<UMatrixValue>(topo
-				.getNrNeurons());
+		List<UMatrixValue> umatrix = new ArrayList<UMatrixValue>(topo.getNrNeurons());
 		double max = computeUMatrix(umatrix);
 		return getNormalizedUMatrix(umatrix, max);
 	}
 
-	private List<UMatrixValue> getNormalizedUMatrix(List<UMatrixValue> umatrix,
-			double max) {
+	private List<UMatrixValue> getNormalizedUMatrix(List<UMatrixValue> umatrix, double max) {
 		for (int i = 0; i < umatrix.size(); i++) {
 			UMatrixValue umv = umatrix.get(i);
 			umv.normalizeTo(max);

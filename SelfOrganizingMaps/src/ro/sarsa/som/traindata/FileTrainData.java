@@ -46,8 +46,7 @@ public class FileTrainData implements SOMTrainData {
 	private double[][] readFromFile() throws IOException {
 		double data[][] = null;
 
-		BufferedReader reader = new BufferedReader(
-				new FileReader(this.fileName));
+		BufferedReader reader = new BufferedReader(new FileReader(this.fileName));
 
 		int nrInstances = Integer.parseInt(reader.readLine());
 		int nrAttr = Integer.parseInt(reader.readLine());

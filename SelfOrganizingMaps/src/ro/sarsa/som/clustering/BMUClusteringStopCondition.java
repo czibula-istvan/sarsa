@@ -18,13 +18,11 @@ import ro.sarsa.som.traindata.SOMTrainData;
  * @author istvan
  * 
  */
-public class BMUClusteringStopCondition implements
-		ClusteringStopCondition<SOMNeuron> {
+public class BMUClusteringStopCondition implements ClusteringStopCondition<SOMNeuron> {
 	private List<SOMNeuron> allBMUs;
 	private int desiredNRClusteri;
 
-	public BMUClusteringStopCondition(SOM som, SOMTrainData td,
-			int desiredNRClusteri) {
+	public BMUClusteringStopCondition(SOM som, SOMTrainData td, int desiredNRClusteri) {
 		this.desiredNRClusteri = desiredNRClusteri;
 		this.allBMUs = computeAllBMUs(som, td);
 	}
@@ -32,8 +30,7 @@ public class BMUClusteringStopCondition implements
 	private List<SOMNeuron> computeAllBMUs(SOM som, SOMTrainData td) {
 		List<SOMNeuron> rez = new ArrayList<SOMNeuron>();
 		for (int i = 0; i < td.size(); i++) {
-			BMU bmu = BMU.computeBestMatchingUnit(td.get(i), som.getTopo(),
-					som.getDistance());
+			BMU bmu = BMU.computeBestMatchingUnit(td.get(i), som.getTopo(), som.getDistance());
 			if (!rez.contains(bmu.getNeuron())) {
 				rez.add(bmu.getNeuron());
 			}
@@ -43,8 +40,7 @@ public class BMUClusteringStopCondition implements
 
 	@Override
 	public boolean isStopConditionReached(Partition<SOMNeuron> currentPart) {
-		if (desiredNRClusteri > 0
-				&& currentPart.getNRClusters() == desiredNRClusteri) {
+		if (desiredNRClusteri > 0 && currentPart.getNRClusters() == desiredNRClusteri) {
 			return true;
 		}
 

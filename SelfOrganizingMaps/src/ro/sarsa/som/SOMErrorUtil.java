@@ -12,8 +12,7 @@ public class SOMErrorUtil {
 	 * @param td
 	 * @return
 	 */
-	public static double computeAverageQuantizationError(SOMTrainData td,
-			SOM som, IDistance<double[]> dist) {
+	public static double computeAverageQuantizationError(SOMTrainData td, SOM som, IDistance<double[]> dist) {
 		double rez = 0;
 		for (int i = 0; i < td.size(); i++) {
 			double[] input = td.get(i);

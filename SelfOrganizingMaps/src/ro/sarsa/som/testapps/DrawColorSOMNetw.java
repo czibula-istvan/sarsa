@@ -18,8 +18,7 @@ public class DrawColorSOMNetw implements INetworkDraw {
 	}
 
 	@Override
-	public void drawNetwork(Graphics g, int w, int h, SOM som,
-			TrainIterationSnapshoot trSnap) {
+	public void drawNetwork(Graphics g, int w, int h, SOM som, TrainIterationSnapshoot trSnap) {
 		SOMTopology topo1 = som.getTopo();
 		RectangularTopology topo = (RectangularTopology) topo1;
 		int nW = w / topo.getWidth();

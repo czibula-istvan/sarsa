@@ -3,9 +3,8 @@ package ro.sarsa.som.traindata;
 import java.awt.Color;
 
 public class RandomColorSetTrainingData implements SOMTrainData {
-	private Color cs[] = new Color[] { Color.red, Color.green, Color.BLUE,
-			Color.BLACK, Color.yellow, Color.white, Color.CYAN, Color.magenta,
-			Color.DARK_GRAY };
+	private Color cs[] = new Color[] { Color.red, Color.green, Color.BLUE, Color.BLACK, Color.yellow, Color.white,
+			Color.CYAN, Color.magenta, Color.DARK_GRAY };
 
 	public RandomColorSetTrainingData() {
 	}

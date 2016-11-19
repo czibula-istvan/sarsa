@@ -18,8 +18,7 @@ public class SOMFuzzyBMUWeightUpdate extends SOMFuzzyWeightUpdate {
 		double maxMiu = Double.MIN_VALUE;
 		for (int i = 0; i < topo.getNrNeurons(); i++) {
 			SOMNeuron neuron = topo.getNeuron(i);
-			double miu = MiuComputer.computeMiu(input, neuron, this,
-					fuzinessDegree);
+			double miu = MiuComputer.computeMiu(input, neuron, this, fuzinessDegree);
 			if (miu > maxMiu) {
 				bmu = neuron;
 				maxMiu = miu;

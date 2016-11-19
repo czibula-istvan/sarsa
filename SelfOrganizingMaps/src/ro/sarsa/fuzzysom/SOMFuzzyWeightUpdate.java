@@ -13,20 +13,18 @@ public class SOMFuzzyWeightUpdate extends SOM {
 		super(inputSpaceDimension, topo);
 	}
 
-	public SOMFuzzyWeightUpdate(int inputSpaceDimension, SOMTopology topo,
-			IDistance<double[]> dist) {
+	public SOMFuzzyWeightUpdate(int inputSpaceDimension, SOMTopology topo, IDistance<double[]> dist) {
 		super(inputSpaceDimension, topo, dist);
 	}
 
 	/**
 	 * When we update the weights we take into account membership degrees (miu)
 	 */
-	protected void updateNeuronWeights(SOMNeuron neuron, double[] input,
-			double learningRate, double influence) {
+	protected void updateNeuronWeights(SOMNeuron neuron, double[] input, double learningRate, double influence) {
 		double m = 0;
 		m = MiuComputer.computeMiu(input, neuron, this, fuzinessDegree);
 		m = Math.pow(m, fuzinessDegree);
-//		System.out.println(m + " " + influence + " " + learningRate);
+		// System.out.println(m + " " + influence + " " + learningRate);
 		influence = influence * m;
 		neuron.adjustWeights(input, learningRate, influence);
 	}

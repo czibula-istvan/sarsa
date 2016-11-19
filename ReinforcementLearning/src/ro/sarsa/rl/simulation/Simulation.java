@@ -30,10 +30,8 @@ public class Simulation {
 		a.train(nrEpochs, initValue, l);
 		return a.getLearnedPolicy();
 	}
-	
-	public History runFile(int nrEpochs, double initValue, 
-						RLTrainListener l, PrintStream ps, boolean writeToConsole) 
-	{
+
+	public History runFile(int nrEpochs, double initValue, RLTrainListener l, PrintStream ps, boolean writeToConsole) {
 
 		a.trainFile(nrEpochs, initValue, l, ps, writeToConsole);
 		return a.getLearnedPolicy();

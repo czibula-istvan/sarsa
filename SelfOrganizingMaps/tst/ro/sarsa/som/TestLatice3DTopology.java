@@ -2,9 +2,8 @@ package ro.sarsa.som;
 
 import java.util.List;
 
-import ro.sarsa.som.topology.Latice2DSOMTopology;
-
 import junit.framework.TestCase;
+import ro.sarsa.som.topology.Latice2DSOMTopology;
 
 public class TestLatice3DTopology extends TestCase {
 	private Latice2DSOMTopology topo = new Latice2DSOMTopology(16, 16, 3);

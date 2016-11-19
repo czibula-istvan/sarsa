@@ -1,8 +1,8 @@
 package ro.sarsa.som.trainsamplechooser;
 
-
 /**
  * Da fiecare input pe rand
+ * 
  * @author istvan
  *
  */

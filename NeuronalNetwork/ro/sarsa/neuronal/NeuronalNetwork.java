@@ -14,13 +14,12 @@ public class NeuronalNetwork {
 	float[][] weigthInHi;
 
 	/** ponderile sinapsurilor dintre stratul ascuns si iesirilor* */
-	float[][] weigthHiOut;	
+	float[][] weigthHiOut;
 
 	/** functia folosita la propagare si la bakPropagare* */
 	private ActivationFunction activationF;
 
-	public NeuronalNetwork(int nrInNeurons, int nrHidNeurons, int nrOutNeurons,
-			ActivationFunction activationF) {
+	public NeuronalNetwork(int nrInNeurons, int nrHidNeurons, int nrOutNeurons, ActivationFunction activationF) {
 		this.nrInputNeurons = nrInNeurons;
 		this.nrHiddenNeuronsLayer1 = nrHidNeurons;
 		this.nrOutputNeurons = nrOutNeurons;
@@ -57,24 +56,20 @@ public class NeuronalNetwork {
 
 	public void setWeigthInHidden(int inNrInNeuron, int nrHidenNeuron, float w) {
 		if (inNrInNeuron < 0 || inNrInNeuron >= nrInputNeurons) {
-			throw new IllegalArgumentException("Invalid input neouron "
-					+ nrInputNeurons);
+			throw new IllegalArgumentException("Invalid input neouron " + nrInputNeurons);
 		}
 		if (nrHidenNeuron < 0 || nrHidenNeuron >= nrHiddenNeuronsLayer1) {
-			throw new IllegalArgumentException("Invalid input neouron "
-					+ nrInputNeurons);
+			throw new IllegalArgumentException("Invalid input neouron " + nrInputNeurons);
 		}
 		weigthInHi[inNrInNeuron][nrHidenNeuron] = w;
 	}
 
 	public void setWeigthHiddenOut(int nrHiddenNeuron, int nrOutNeuron, float w) {
 		if (nrOutNeuron < 0 || nrOutNeuron >= nrOutputNeurons) {
-			throw new IllegalArgumentException("Invalid output neouron "
-					+ nrInputNeurons);
+			throw new IllegalArgumentException("Invalid output neouron " + nrInputNeurons);
 		}
 		if (nrHiddenNeuron < 0 || nrHiddenNeuron >= nrHiddenNeuronsLayer1) {
-			throw new IllegalArgumentException("Invalid input neouron "
-					+ nrInputNeurons);
+			throw new IllegalArgumentException("Invalid input neouron " + nrInputNeurons);
 		}
 		weigthHiOut[nrHiddenNeuron][nrOutNeuron] = w;
 	}
@@ -88,8 +83,7 @@ public class NeuronalNetwork {
 	 */
 	public PropagationResult forwardPropagation(float[] inValues) {
 		if (inValues.length != nrInputNeurons) {
-			throw new IllegalArgumentException(
-					"The number of input values must be " + nrInputNeurons);
+			throw new IllegalArgumentException("The number of input values must be " + nrInputNeurons);
 		}
 		PropagationResult result = new PropagationResult();
 		// calculam iesirile din stratul hidden
@@ -121,24 +115,20 @@ public class NeuronalNetwork {
 
 	public float getWeigthInHidden(int inNrInNeuron, int nrHidenNeuron) {
 		if (inNrInNeuron < 0 || inNrInNeuron >= nrInputNeurons) {
-			throw new IllegalArgumentException("Invalid input neouron "
-					+ nrInputNeurons);
+			throw new IllegalArgumentException("Invalid input neouron " + nrInputNeurons);
 		}
 		if (nrHidenNeuron < 0 || nrHidenNeuron >= nrHiddenNeuronsLayer1) {
-			throw new IllegalArgumentException("Invalid input neouron "
-					+ nrInputNeurons);
+			throw new IllegalArgumentException("Invalid input neouron " + nrInputNeurons);
 		}
 		return weigthInHi[inNrInNeuron][nrHidenNeuron];
 	}
 
 	public float getWeigthHiddenOut(int nrHiddenNeuron, int nrOutNeuron) {
 		if (nrOutNeuron < 0 || nrOutNeuron >= nrOutputNeurons) {
-			throw new IllegalArgumentException("Invalid output neouron "
-					+ nrInputNeurons);
+			throw new IllegalArgumentException("Invalid output neouron " + nrInputNeurons);
 		}
 		if (nrHiddenNeuron < 0 || nrHiddenNeuron >= nrHiddenNeuronsLayer1) {
-			throw new IllegalArgumentException("Invalid input neouron "
-					+ nrInputNeurons);
+			throw new IllegalArgumentException("Invalid input neouron " + nrInputNeurons);
 		}
 		return weigthHiOut[nrHiddenNeuron][nrOutNeuron];
 	}

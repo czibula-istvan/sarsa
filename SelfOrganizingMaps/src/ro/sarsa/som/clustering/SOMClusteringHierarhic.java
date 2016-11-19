@@ -22,8 +22,8 @@ public class SOMClusteringHierarhic implements SOMClustering {
 	private int nrClusteri;
 	private ClusteringListener<SOMNeuron> l;
 
-	public SOMClusteringHierarhic(SOM som, SOMTopology topo, SOMTrainData td,
-			int nrClusteri, ClusteringListener<SOMNeuron> l) {
+	public SOMClusteringHierarhic(SOM som, SOMTopology topo, SOMTrainData td, int nrClusteri,
+			ClusteringListener<SOMNeuron> l) {
 		this.som = som;
 		this.topo = topo;
 		this.td = td;
@@ -34,23 +34,19 @@ public class SOMClusteringHierarhic implements SOMClustering {
 
 	public Partition<SOMNeuron> neuronCluster3() {
 		NeuronDistance neuronDistance = new NeuronDistance(umatrix, topo);
-		MaxLinkageMetric<SOMNeuron> lm = new MaxLinkageMetric<SOMNeuron>(
-				neuronDistance);
+		MaxLinkageMetric<SOMNeuron> lm = new MaxLinkageMetric<SOMNeuron>(neuronDistance);
 		List<SOMNeuron> allNeurons = getAllBMUNeurons();
 		Hierarhic<SOMNeuron> hier = new Hierarhic<SOMNeuron>(lm, allNeurons, 2);
-		Partition<SOMNeuron> part = hier
-				.clusterizare(new SOMClusteringListener(som, td));
+		Partition<SOMNeuron> part = hier.clusterizare(new SOMClusteringListener(som, td));
 		return part;
 	}
 
 	public Partition<SOMNeuron> neuronCluster() {
-		RefactoringSOMLinkageMetric somLM = new RefactoringSOMLinkageMetric(
-				umatrix, topo);
+		RefactoringSOMLinkageMetric somLM = new RefactoringSOMLinkageMetric(umatrix, topo);
 		List<SOMNeuron> allNeurons = topo.getAllNeurons();
 
 		Hierarhic<SOMNeuron> hier = new Hierarhic<SOMNeuron>(somLM, allNeurons,
-				new DavisBouldinStopCondition<SOMNeuron>(nrClusteri,
-						somLM.getNeuronDistance()));
+				new DavisBouldinStopCondition<SOMNeuron>(nrClusteri, somLM.getNeuronDistance()));
 
 		Partition<SOMNeuron> part = hier.clusterizare(l);
 		return part;
@@ -69,12 +65,10 @@ public class SOMClusteringHierarhic implements SOMClustering {
 		return rez;
 	}
 
-	public static Partition cluster(SOM som, SOMTrainData data,
-			Partition<SOMNeuron> neuronPart) {
+	public static Partition cluster(SOM som, SOMTrainData data, Partition<SOMNeuron> neuronPart) {
 		Partition rez = Partition.createEmpty(neuronPart.getNRClusters());
 		for (int i = 0; i < data.size(); i++) {
-			BMU bmu = BMU.computeBestMatchingUnit(data.get(i), som.getTopo(),
-					som.getDistance());
+			BMU bmu = BMU.computeBestMatchingUnit(data.get(i), som.getTopo(), som.getDistance());
 			int clusterIndex = neuronPart.getClusterIndexFor(bmu.getNeuron());
 			rez.get(clusterIndex).add(data.getLabel(i));
 		}

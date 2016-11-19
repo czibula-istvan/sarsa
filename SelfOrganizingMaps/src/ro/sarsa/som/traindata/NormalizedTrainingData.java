@@ -39,7 +39,7 @@ public class NormalizedTrainingData implements SOMTrainData {
 		double[] data = td.get(inputIndex);
 		data = Arrays.copyOf(data, data.length);
 		for (int i = 0; i < data.length; i++) {
-			data[i] = (data[i]-mins[i]) / (maxs[i] - mins[i]);
+			data[i] = (data[i] - mins[i]) / (maxs[i] - mins[i]);
 		}
 		return data;
 	}

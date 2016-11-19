@@ -3,8 +3,7 @@ package ro.sarsa.som.umatrix;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-import java.io.*;
-import javax.imageio.ImageIO;
+
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -48,8 +47,7 @@ public class ColorGradient {
 	 */
 	public void addPoint(Color gradientColour) {
 		if (intGradientPoints > 10)
-			throw new java.lang.IllegalArgumentException(
-					"Only 10 points allowed");
+			throw new java.lang.IllegalArgumentException("Only 10 points allowed");
 
 		crGradientPoints[intGradientPoints++] = gradientColour;
 	}
@@ -63,18 +61,18 @@ public class ColorGradient {
 
 	/**
 	 * Calculate the RGB deltas between two different colour values and over a
-	 * given number of timesteps. <code>createGradient</code> uses this
-	 * function to connect the gradient points together.
+	 * given number of timesteps. <code>createGradient</code> uses this function
+	 * to connect the gradient points together.
 	 *
 	 * @param start
 	 *            the starting colour.
 	 * @param end
 	 *            the ending colour.
 	 * @param steps
-	 *            the number of steps required to get from <code>start</code>
-	 *            to <code>end</code.
+	 *            the number of steps required to get from <code>start</code> to
+	 *            <code>end</code.
 	 * @return a <code>double[3]</code> array returning the red, green and blue
-	 * delta values.
+	 *         delta values.
 	 */
 	protected double[] getRGBDeltas(Color start, Color end, int steps) {
 		double[] delta = new double[3];
@@ -112,8 +110,7 @@ public class ColorGradient {
 
 		// For each of the gradient points
 		for (int i = 0; i < intGradientPoints - 1; i++) {
-			double[] delta = getRGBDeltas(crGradientPoints[i],
-					crGradientPoints[i + 1], steps);
+			double[] delta = getRGBDeltas(crGradientPoints[i], crGradientPoints[i + 1], steps);
 
 			for (int s = 0; s < steps; s++) {
 				crColours[0] += delta[0];
@@ -125,9 +122,8 @@ public class ColorGradient {
 					crColours[1] = 255;
 				if (crColours[2] > 255)
 					crColours[2] = 255;
-				crGradient[grad] = new Color((int) Math.round(crColours[0]),
-						(int) Math.round(crColours[1]), (int) Math
-								.round(crColours[2]));
+				crGradient[grad] = new Color((int) Math.round(crColours[0]), (int) Math.round(crColours[1]),
+						(int) Math.round(crColours[2]));
 				grad++;
 			}
 		}

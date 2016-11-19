@@ -72,8 +72,8 @@ public abstract class PermutationEnviroment extends Enviroment {
 			}
 			return rez;
 		} catch (Exception ex) {
-             ex.printStackTrace();
-             return null;
+			ex.printStackTrace();
+			return null;
 		}
 	}
 

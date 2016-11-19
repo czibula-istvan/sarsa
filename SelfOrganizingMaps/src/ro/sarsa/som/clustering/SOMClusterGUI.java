@@ -8,7 +8,6 @@ import java.util.List;
 
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
-import javax.swing.colorchooser.ColorSelectionModel;
 
 import ro.sarsa.clustering.ClusteringListener;
 import ro.sarsa.clustering.Partition;
@@ -22,14 +21,12 @@ import ro.sarsa.som.topology.SOMTopology;
 import ro.sarsa.som.traindata.SOMTrainData;
 import ro.sarsa.som.umatrix.ColorGradient;
 
-public class SOMClusterGUI extends JPanel implements SOMTrainingListener,
-		ClusteringListener<SOMNeuron> {
+public class SOMClusterGUI extends JPanel implements SOMTrainingListener, ClusteringListener<SOMNeuron> {
 	private SOM som;
 	private SOMTrainData trD;
 	private Partition<SOMNeuron> part;
-	private Color colors[] = new Color[] { Color.red, Color.green, Color.BLUE,
-			Color.BLACK, Color.yellow, Color.white, Color.CYAN, Color.magenta,
-			Color.DARK_GRAY, Color.orange };
+	private Color colors[] = new Color[] { Color.red, Color.green, Color.BLUE, Color.BLACK, Color.yellow, Color.white,
+			Color.CYAN, Color.magenta, Color.DARK_GRAY, Color.orange };
 
 	public SOMClusterGUI(SOM som, SOMTrainData trD, Partition<SOMNeuron> part) {
 		this.som = som;
@@ -89,8 +86,7 @@ public class SOMClusterGUI extends JPanel implements SOMTrainingListener,
 	}
 
 	@Override
-	public void trainStepPerformed(int iteration, double[] input, BMU bmu,
-			List<NeighborSOMNeuron> neighbors) {
+	public void trainStepPerformed(int iteration, double[] input, BMU bmu, List<NeighborSOMNeuron> neighbors) {
 		redrawAll();
 	}
 

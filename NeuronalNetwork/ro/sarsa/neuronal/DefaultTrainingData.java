@@ -14,7 +14,7 @@ public class DefaultTrainingData implements TrainingData {
 		return in.length;
 	}
 
-	public float[] getInput(int i, int nrInputNeurons) {		
+	public float[] getInput(int i, int nrInputNeurons) {
 		return in[i];
 	}
 

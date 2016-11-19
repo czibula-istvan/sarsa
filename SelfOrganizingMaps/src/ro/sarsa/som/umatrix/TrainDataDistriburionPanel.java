@@ -15,14 +15,12 @@ import ro.sarsa.som.SOMTrainingListener;
 import ro.sarsa.som.topology.SOMTopology;
 import ro.sarsa.som.traindata.SOMTrainData;
 
-public class TrainDataDistriburionPanel extends JPanel implements
-		SOMTrainingListener {
+public class TrainDataDistriburionPanel extends JPanel implements SOMTrainingListener {
 	private SOMTopology topo;
 	private SOMTrainData trData;
 	private SOM som;
 
-	public TrainDataDistriburionPanel(SOM som, SOMTopology topo,
-			SOMTrainData trData) {
+	public TrainDataDistriburionPanel(SOM som, SOMTopology topo, SOMTrainData trData) {
 		this.som = som;
 		this.topo = topo;
 		this.trData = trData;
@@ -36,8 +34,7 @@ public class TrainDataDistriburionPanel extends JPanel implements
 		for (int i = 0; i < trData.size(); i++) {
 			Object label = trData.getLabel(i);
 			double[] input = trData.get(i);
-			BMU bmu = BMU.computeBestMatchingUnit(input, som.getTopo(),
-					som.getDistance());
+			BMU bmu = BMU.computeBestMatchingUnit(input, som.getTopo(), som.getDistance());
 			SOMNeuron neuron = bmu.getNeuron();
 			double xy[] = topo.getNeuronCenter(w, h, neuron);
 			g.drawString(label.toString(), (int) xy[0], (int) xy[1] + 10);
@@ -45,8 +42,7 @@ public class TrainDataDistriburionPanel extends JPanel implements
 	}
 
 	@Override
-	public void trainStepPerformed(int iteration, double[] input, BMU bmu,
-			List<NeighborSOMNeuron> neighbors) {
+	public void trainStepPerformed(int iteration, double[] input, BMU bmu, List<NeighborSOMNeuron> neighbors) {
 		try {
 			SwingUtilities.invokeAndWait(new Runnable() {
 				@Override

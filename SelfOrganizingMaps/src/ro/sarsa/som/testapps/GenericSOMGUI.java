@@ -88,19 +88,14 @@ public class GenericSOMGUI extends JFrame {
 							// nu s-a ininitializat inca
 							initTopoAndGUI();
 						}
-						SOMTrainingListeners lst = new SOMTrainingListeners(
-								somView);
+						SOMTrainingListeners lst = new SOMTrainingListeners(somView);
 						lst.addListener(umP);
 						lst.addListener(cluGUI);
 						jLStatus.setText("Start Training");
 						long time = System.currentTimeMillis();
-						Trainer2Phase.train2Phase(som,
-								Integer.parseInt(jtFNrIteration.getText()),
-								trData,
-								Double.parseDouble(jTFLearningR.getText()),
-								topo.getMaxRadius() / 3, lst);
-						jLStatus.setText("Time:"
-								+ (System.currentTimeMillis() - time));
+						Trainer2Phase.train2Phase(som, Integer.parseInt(jtFNrIteration.getText()), trData,
+								Double.parseDouble(jTFLearningR.getText()), topo.getMaxRadius() / 3, lst);
+						jLStatus.setText("Time:" + (System.currentTimeMillis() - time));
 					}
 
 				}).start();
@@ -112,8 +107,7 @@ public class GenericSOMGUI extends JFrame {
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
-				SOMClusteringHierarhic clu = new SOMClusteringHierarhic(som,
-						topo, trData,
+				SOMClusteringHierarhic clu = new SOMClusteringHierarhic(som, topo, trData,
 						Integer.parseInt(jTFNrClusteri.getText()), cluGUI);
 				clu.neuronCluster();
 			}
@@ -165,9 +159,8 @@ public class GenericSOMGUI extends JFrame {
 		// Latice2DSOMTopology topo = new Latice2DSOMTopology(Integer
 		// .parseInt(jTFNrRows.getText()), Integer.parseInt(jTFNrCols
 		// .getText()), trData.getDataDimension());
-		TorusSOMTopology topo = new TorusSOMTopology(Integer.parseInt(jTFNrRows
-				.getText()), Integer.parseInt(jTFNrCols.getText()),
-				trData.getDataDimension());
+		TorusSOMTopology topo = new TorusSOMTopology(Integer.parseInt(jTFNrRows.getText()),
+				Integer.parseInt(jTFNrCols.getText()), trData.getDataDimension());
 		topo.initRandom(0, 1);
 		return topo;
 	}

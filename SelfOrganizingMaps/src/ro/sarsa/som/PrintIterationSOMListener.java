@@ -15,12 +15,11 @@ public class PrintIterationSOMListener implements SOMTrainingListener {
 	}
 
 	@Override
-	public void trainStepPerformed(int iteration, double[] input, BMU bmu,
-			List<NeighborSOMNeuron> neighbors) {
+	public void trainStepPerformed(int iteration, double[] input, BMU bmu, List<NeighborSOMNeuron> neighbors) {
 		if (prevIT != iteration) {
-//			double avgQE = som.computeAverageQuantizationError(td);
-//			System.out.format("%.5f%n", avgQE);
-                    System.out.println(iteration);
+			// double avgQE = som.computeAverageQuantizationError(td);
+			// System.out.format("%.5f%n", avgQE);
+			System.out.println(iteration);
 		}
 		prevIT = iteration;
 

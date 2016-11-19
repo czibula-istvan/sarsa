@@ -62,7 +62,6 @@ public class QValuesIndexedSSO2 extends AbstractQValues {
 		return act2vals[actIndex];
 	}
 
-
 	public synchronized void updateValue(State state, Action act, UpdateFunction updateF) {
 		double[] act2vals = values.get(state);
 		short actIndex = ((IndexedAction) act).getIndex();

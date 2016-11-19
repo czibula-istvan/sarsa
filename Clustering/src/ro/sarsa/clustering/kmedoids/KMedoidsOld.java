@@ -25,8 +25,7 @@ public class KMedoidsOld<T> {
 		return calculMedoiziInitiali(objects, distMin, -1);
 	}
 
-	public List<T> calculMedoiziInitiali(List<T> objects, double distMin,
-			int nrMedoids) {
+	public List<T> calculMedoiziInitiali(List<T> objects, double distMin, int nrMedoids) {
 		List<T> medoizi = new ArrayList<T>();
 		int k = objects.size();// nr medoizi
 		if (nrMedoids > 0) {
@@ -60,8 +59,7 @@ public class KMedoidsOld<T> {
 			minsToMedoids.add(d.distance(objects.get(i), obj));
 		}
 
-		System.out.println("Alegerea initiala" + obj + " " + max + " poz:"
-				+ objects.indexOf(obj));
+		System.out.println("Alegerea initiala" + obj + " " + max + " poz:" + objects.indexOf(obj));
 		while (medoizi.size() < k) {
 			T obrepr = null;
 			double distMax = 0;
@@ -86,9 +84,8 @@ public class KMedoidsOld<T> {
 				minsToMedoids.remove(poz);
 				// actualizez distanta spre cel mai apropiat medoid
 				updateMins(objects, obrepr, minsToMedoids);
-				System.out.println("Alegerea medoid" + obrepr + " " + distMax
-						+ " medoizi size:" + medoizi.size() + " poz:"
-						+ (poz + medoizi.size()));
+				System.out.println("Alegerea medoid" + obrepr + " " + distMax + " medoizi size:" + medoizi.size()
+						+ " poz:" + (poz + medoizi.size()));
 			} else {
 				k--;
 				// System.out.print("k=" + k + " distMax=" + distMax);
@@ -104,8 +101,7 @@ public class KMedoidsOld<T> {
 	 * @param newMedoid
 	 * @param minsToMedoids
 	 */
-	private void updateMins(List<T> objects, T newMedoid,
-			List<Double> minsToMedoids) {
+	private void updateMins(List<T> objects, T newMedoid, List<Double> minsToMedoids) {
 		for (int i = 0; i < objects.size(); i++) {
 			double dMin = minsToMedoids.get(i);
 			double dist = d.distance(objects.get(i), newMedoid);
@@ -145,8 +141,7 @@ public class KMedoidsOld<T> {
 				// double medieMin = 50000;
 				Cluster<T> jmin = c.get(0);
 				for (int j = 0; j < medoizi.size(); j++) {
-					double distance = d
-							.distance(medoizi.get(j), objects.get(i));
+					double distance = d.distance(medoizi.get(j), objects.get(i));
 					if (distance < min) {
 						jmin = c.get(j);
 						min = distance;
@@ -190,8 +185,7 @@ public class KMedoidsOld<T> {
 						if (cl.get(h) != medV) {
 							double t = 0;
 							for (int j = 0; j < cl.getNRObjs(); j++) {
-								t += d.distance(cl.get(j), cl.get(h))
-										- d.distance(cl.get(j), medV);
+								t += d.distance(cl.get(j), cl.get(h)) - d.distance(cl.get(j), medV);
 							}
 							if (t < 0) {
 								hNou = cl.get(h); // medoidul nou

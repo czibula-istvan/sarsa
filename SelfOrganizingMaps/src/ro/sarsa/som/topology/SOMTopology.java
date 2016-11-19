@@ -52,14 +52,15 @@ public interface SOMTopology {
 	public Shape getNeuronShape(int w, int h, SOMNeuron n);
 
 	/**
-	 * Return the general graphic representation of a neuron
-	 * We can translate this to the desired position to draw all the neurons
-	 * Putem folosi
+	 * Return the general graphic representation of a neuron We can translate
+	 * this to the desired position to draw all the neurons Putem folosi
+	 * 
 	 * @param w
 	 * @param h
 	 * @return
 	 */
 	public Shape getNeuronShape(int w, int h);
+
 	/**
 	 * Centrul neuronului scalat la w,h
 	 *

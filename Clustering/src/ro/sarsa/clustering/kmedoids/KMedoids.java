@@ -22,8 +22,8 @@ public class KMedoids<T> {
 	 * @param seeds
 	 * @return
 	 */
-	public static <T> Partition<T> computePartition(List<? extends T> seeds,
-			List<? extends T> objects, IDistance<T> dist) {
+	public static <T> Partition<T> computePartition(List<? extends T> seeds, List<? extends T> objects,
+			IDistance<T> dist) {
 		// start with partition with nrSeed empty clusters
 		Partition<T> rez = new Partition<T>(seeds.size());
 		// we will assign each element to the cluster corresponding to the
@@ -44,10 +44,9 @@ public class KMedoids<T> {
 		return rez;
 	}
 
-	public Partition<T> partition(List<T> objects, int nrClusters,
-			ClusteringListener<T> list) {
+	public Partition<T> partition(List<T> objects, int nrClusters, ClusteringListener<T> list) {
 		// select initial medoids randomly
-		List<T> medoids = KMedoids.<T> pickRandomSeeds(nrClusters, objects);
+		List<T> medoids = KMedoids.<T>pickRandomSeeds(nrClusters, objects);
 
 		// assign each object to the closest medoid
 		Partition<T> part = computePartition(medoids, objects, dist);
@@ -63,8 +62,7 @@ public class KMedoids<T> {
 					// change medoid
 					medoidCopy.set(i, cl.get(j));
 					// compute a new partition for the new medoid list
-					Partition<T> partAux = computePartition(medoids, objects,
-							dist);
+					Partition<T> partAux = computePartition(medoids, objects, dist);
 					double costAux = computeCost(partAux, medoidCopy);
 					if (costAux < cost) {
 						// if the new partition is better
@@ -80,8 +78,7 @@ public class KMedoids<T> {
 		return part;
 	}
 
-	private void notifyNewPartition(ClusteringListener<T> list,
-			Partition<T> part) {
+	private void notifyNewPartition(ClusteringListener<T> list, Partition<T> part) {
 		if (list != null) {
 			list.intermediatePartition(part);
 		}

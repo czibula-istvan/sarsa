@@ -17,16 +17,15 @@ public class SOMFuzzyNoBMU extends SOMFuzzyWeightUpdate {
 	 * Every time update all the neurons Update will use the membership (miu -
 	 * updateNeuronWeights defined in SOMFuzzyWeightUpdate)
 	 */
-	public void trainingStep(int curIter, double input[], double learningRate,
-			double neighborRadius, SOMTrainingListener l) {
+	public void trainingStep(int curIter, double input[], double learningRate, double neighborRadius,
+			SOMTrainingListener l) {
 		for (int i = 0; i < getTopo().getNrNeurons(); i++) {
 			SOMNeuron neuron = getTopo().getNeuron(i);
 			// updateNeuronWeights(neuron, input, learningRate, 1);
 			updateNeuronWeights(neuron, input, learningRate, 1);
 
 			// obtin lista vecinilor ce pica in radiusul cerut
-			List<NeighborSOMNeuron> neighbors = comptationL.getNeighbors(
-					neuron, neighborRadius);
+			List<NeighborSOMNeuron> neighbors = comptationL.getNeighbors(neuron, neighborRadius);
 			// actualizez valorile in functie de cat de apropiat e de BMU
 			if (neighbors != null && neighbors.size() > 0) {
 				updateNeighbors(input, learningRate, neighborRadius, neighbors);

@@ -2,7 +2,6 @@ package ro.sarsa.clustering.distances;
 
 import ro.sarsa.clustering.IDistance;
 
-
 public class EuclideanDistance implements IDistance<double[]> {
 
 	@Override

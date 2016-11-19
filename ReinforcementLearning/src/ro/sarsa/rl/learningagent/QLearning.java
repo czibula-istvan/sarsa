@@ -56,7 +56,7 @@ public class QLearning extends ReinforcementLearning {
 
 			double maxNextQVal = q.getMaxValue(newS, nextPossibleActions);
 
-			//asa evitam sa cautam de doua ori valoarea in qValues
+			// asa evitam sa cautam de doua ori valoarea in qValues
 			q.updateValue(cState, currentAction, (qVal) -> {
 				double tdError = reward + gama * maxNextQVal - qVal;
 				return qVal + alfa * tdError;

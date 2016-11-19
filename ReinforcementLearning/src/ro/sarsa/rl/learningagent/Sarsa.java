@@ -10,14 +10,12 @@ public class Sarsa extends ReinforcementLearning {
 
 	private History hist = new History();
 
-	public Sarsa(Enviroment env, int maxSteps, double learningRate,
-			double discountFactor) {
-		this(env, maxSteps, learningRate, discountFactor,
-				new EpsilonGreedyPolicy(0.1));
+	public Sarsa(Enviroment env, int maxSteps, double learningRate, double discountFactor) {
+		this(env, maxSteps, learningRate, discountFactor, new EpsilonGreedyPolicy(0.1));
 	}
 
-	public Sarsa(Enviroment env, int maxSteps, double learningRate,
-			double discountFactor, ActionSelectionPolicy policy) {
+	public Sarsa(Enviroment env, int maxSteps, double learningRate, double discountFactor,
+			ActionSelectionPolicy policy) {
 		super(env, maxSteps, learningRate, discountFactor, policy);
 	}
 

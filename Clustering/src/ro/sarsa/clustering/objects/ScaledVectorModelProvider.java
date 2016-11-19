@@ -2,15 +2,13 @@ package ro.sarsa.clustering.objects;
 
 import java.util.List;
 
-
 public class ScaledVectorModelProvider<T> implements VectorModelProvider<T> {
 	private VectorModelProvider<T> vectModel;
 	private List<T> allObjs;
 	private double[] min;
 	private double[] max;
 
-	public ScaledVectorModelProvider(VectorModelProvider<T> vectModel,
-			List<T> allObjs) {
+	public ScaledVectorModelProvider(VectorModelProvider<T> vectModel, List<T> allObjs) {
 		this.vectModel = vectModel;
 		this.allObjs = allObjs;
 		findMinMax(allObjs);

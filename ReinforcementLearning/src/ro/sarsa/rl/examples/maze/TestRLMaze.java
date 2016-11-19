@@ -16,11 +16,10 @@ public class TestRLMaze extends Simulation {
 	}
 
 	public static void main(String[] args) {
-		GraphEnviroment grEnv = new GraphEnviroment(true, 16, new GraphState(0,
-				4), new GraphState(15, 4));
+		GraphEnviroment grEnv = new GraphEnviroment(true, 16, new GraphState(0, 4), new GraphState(15, 4));
 		grEnv.initCompleteMazeSNEWStyle2();
 		// final Sarsa lAlg = new Sarsa(grEnv, 1000, 0.4, 0.9);
-		 final QLearning lAlg = new QLearning(grEnv, 1000, 0.4, 0.9);
+		final QLearning lAlg = new QLearning(grEnv, 1000, 0.4, 0.9);
 		// final SarsaLambda lAlg = new SarsaLambda(grEnv, 1000,
 		// EligibilityTraceType.Acummulating, 0.4, 0.9, 0.95);
 		TestRLMaze test = new TestRLMaze(lAlg, grEnv);
@@ -28,8 +27,7 @@ public class TestRLMaze extends Simulation {
 		History hist = test.run(15000, 0, new RLTrainListener() {
 			@Override
 			public int epoch(int ord, int total, History lastEpochHistory) {
-				System.out.println(ord + "/" + total + " policy>"
-						+ lAlg.getLearnedPolicy());
+				System.out.println(ord + "/" + total + " policy>" + lAlg.getLearnedPolicy());
 				return 100;
 			}
 		});

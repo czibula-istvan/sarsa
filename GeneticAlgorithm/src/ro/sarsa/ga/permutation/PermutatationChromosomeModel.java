@@ -71,7 +71,7 @@ public abstract class PermutatationChromosomeModel implements ChromosomeModel {
 		for (int i = dim - 1; i >= cutPoint2; i--) {
 			offspringPerm[i] = filler.remove((int) (filler.size() - 1));
 		}
-		for (int i = cutPoint1-1; i >= 0; i--) {
+		for (int i = cutPoint1 - 1; i >= 0; i--) {
 			offspringPerm[i] = filler.remove((int) (filler.size() - 1));
 		}
 		return new PermutationChromosome(offspringPerm);
@@ -84,11 +84,11 @@ public abstract class PermutatationChromosomeModel implements ChromosomeModel {
 		PermutationChromosome rez = ((PermutationChromosome) parent1).makeCopy();
 		for (int i = 0; i < dim; i++) {
 			if (rnd.nextDouble() < mutationProb) {
-//				int genePoz1 = rnd.nextInt(dim);
-//				int genePoz2 = rnd.nextInt(dim);
-//				rez.switchGenes(genePoz1, genePoz2);
-				int genePoz1 = rnd.nextInt(dim-1);
-				rez.switchGenes(genePoz1, genePoz1+1);
+				// int genePoz1 = rnd.nextInt(dim);
+				// int genePoz2 = rnd.nextInt(dim);
+				// rez.switchGenes(genePoz1, genePoz2);
+				int genePoz1 = rnd.nextInt(dim - 1);
+				rez.switchGenes(genePoz1, genePoz1 + 1);
 			}
 		}
 		return rez;

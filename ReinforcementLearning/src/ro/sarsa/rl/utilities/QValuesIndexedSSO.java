@@ -180,11 +180,13 @@ public class QValuesIndexedSSO extends AbstractQValues {
 	}
 
 	public int getNrVisitedStates() {
-		return values.size()+smalSizeOpt.size();
+		return values.size() + smalSizeOpt.size();
 	}
+
 	public void printStatistics() {
-		
+
 	}
+
 	public void printStatistics2() {
 		int nrDefVals = 0;
 		int histDefVals[] = new int[nrTotalActions];

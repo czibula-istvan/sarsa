@@ -10,8 +10,7 @@ public class ProgramDeTest {
 
 	private static int nrClase;
 
-	public static void main(String[] args) throws NumberFormatException,
-			IOException {
+	public static void main(String[] args) throws NumberFormatException, IOException {
 		// citesc din fisier datele
 		float[][] inputData = readInputData();
 		for (;;) {
@@ -32,15 +31,14 @@ public class ProgramDeTest {
 		System.out.println("nrOutput:" + nrIesiri);
 
 		// creez un NeuronalNetwork
-		NeuronalNetwork netw = NetworkCreator.createRandom(nrIntrari, nrHidden,
-				nrIesiri, 0.5f);
+		NeuronalNetwork netw = NetworkCreator.createRandom(nrIntrari, nrHidden, nrIesiri, 0.5f);
 		// creez antrenoruil de retea
 		float learningRate = 0.3f;
 		NetworkTrainer trainer = new NetworkTrainer(netw, learningRate);
 
-		//int nrDateDeAntrenare = (inputData.length * 2) / 3;
+		// int nrDateDeAntrenare = (inputData.length * 2) / 3;
 		int nrDateDeAntrenare = (inputData.length * 3) / 4;
-		
+
 		// construiesc datele de antrenare
 		float[][] in = new float[nrDateDeAntrenare][];
 		float[][] expectedOut = new float[nrDateDeAntrenare][];
@@ -68,11 +66,8 @@ public class ProgramDeTest {
 				nrCorectPpedictions++;
 			}
 		}
-		System.out
-				.println("Precizie:"
-						+ (((float) nrCorectPpedictions / (float) nrDateDeAntrenare) * 100d));
-		System.out.println("nrCorectPpedictions:" + nrCorectPpedictions
-				+ " nrDateDeTest:" + nrDateDeAntrenare);
+		System.out.println("Precizie:" + (((float) nrCorectPpedictions / (float) nrDateDeAntrenare) * 100d));
+		System.out.println("nrCorectPpedictions:" + nrCorectPpedictions + " nrDateDeTest:" + nrDateDeAntrenare);
 
 		// fac predictie.. folosesc tot datele care nu au fost folosite la
 		// antrenare
@@ -89,15 +84,13 @@ public class ProgramDeTest {
 				nrCorectPpedictions++;
 			}
 		}
-		System.out
-				.println("Precizie:"
-						+ (((double) nrCorectPpedictions / (double) (inputData.length - nrDateDeAntrenare)) * 100d));
-		System.out.println("nrCorectPpedictions:" + nrCorectPpedictions
-				+ " nrDateDeTest:" + (inputData.length - nrDateDeAntrenare));
+		System.out.println("Precizie:"
+				+ (((double) nrCorectPpedictions / (double) (inputData.length - nrDateDeAntrenare)) * 100d));
+		System.out.println("nrCorectPpedictions:" + nrCorectPpedictions + " nrDateDeTest:"
+				+ (inputData.length - nrDateDeAntrenare));
 	}
 
-	public static float[][] readInputData() throws NumberFormatException,
-			IOException {
+	public static float[][] readInputData() throws NumberFormatException, IOException {
 		File f = new File("res/CancerData.txt");
 		FileReader fr = new FileReader(f);
 		BufferedReader bufR = new BufferedReader(fr);

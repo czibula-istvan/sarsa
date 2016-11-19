@@ -13,8 +13,7 @@ public class EuclidianObjectDistance<T> implements IDistance<T> {
 
 	@Override
 	public double distance(T a, T b) {
-		return dist.distance(vectM.getVectorialModel(a), vectM
-				.getVectorialModel(b));
+		return dist.distance(vectM.getVectorialModel(a), vectM.getVectorialModel(b));
 	}
 
 	@Override

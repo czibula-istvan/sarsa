@@ -2,12 +2,7 @@ package ro.sarsa.som.topology;
 
 import java.awt.Shape;
 import java.awt.geom.Rectangle2D;
-import java.util.ArrayList;
-import java.util.List;
 
-import ro.sarsa.clustering.IDistance;
-import ro.sarsa.clustering.distances.EuclideanDistance;
-import ro.sarsa.som.NeighborSOMNeuron;
 import ro.sarsa.som.SOMNeuron;
 
 public class Latice2DSOMTopology extends RectangularTopology {
@@ -21,8 +16,7 @@ public class Latice2DSOMTopology extends RectangularTopology {
 		for (int i = 0; i < row; i++) {
 			neurons[i] = new SOMNeuron[column];
 			for (int j = 0; j < column; j++) {
-				neurons[i][j] = new SOMNeuron(i * row + j,
-						new double[] { i, j }, size, a, b);
+				neurons[i][j] = new SOMNeuron(i * row + j, new double[] { i, j }, size, a, b);
 			}
 		}
 		initminDistance();
@@ -33,8 +27,7 @@ public class Latice2DSOMTopology extends RectangularTopology {
 		for (int i = 0; i < row; i++) {
 			neurons[i] = new SOMNeuron[column];
 			for (int j = 0; j < column; j++) {
-				neurons[i][j] = new SOMNeuron(i * row + j,
-						new double[] { i, j }, size);
+				neurons[i][j] = new SOMNeuron(i * row + j, new double[] { i, j }, size);
 				neurons[i][j].init(w);
 			}
 		}

@@ -8,8 +8,7 @@ import ro.sarsa.som.traindata.SOMTrainData;
 
 public class MiuComputer {
 
-	public static double computeMiu(double[] input, SOMNeuron neuron, SOM som,
-			double fuzinessDegree) {
+	public static double computeMiu(double[] input, SOMNeuron neuron, SOM som, double fuzinessDegree) {
 		IDistance<double[]> dist = som.getDistance();
 		SOMTopology topo = som.getTopo();
 		double[] wi = neuron.getWeights();
@@ -27,8 +26,7 @@ public class MiuComputer {
 		return suma;
 	}
 
-	public static double[][] computeMiu(SOMTrainData trData, SOM som,
-			double fuzinessDegree) {
+	public static double[][] computeMiu(SOMTrainData trData, SOM som, double fuzinessDegree) {
 		SOMTopology topo = som.getTopo();
 		double[][] miu = new double[topo.getNrNeurons()][trData.size()];
 		for (int k = 0; k < trData.size(); k++) {

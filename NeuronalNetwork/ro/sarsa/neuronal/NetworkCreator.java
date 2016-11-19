@@ -1,6 +1,5 @@
 package ro.sarsa.neuronal;
 
-
 public class NetworkCreator {
 	/**
 	 * Creaza un network in care ponderile se pun aleator
@@ -11,10 +10,8 @@ public class NetworkCreator {
 	 * @param weightLimit
 	 * @return
 	 */
-	public static NeuronalNetwork createRandom(int inNeurons,
-			int hiddenNeurons, int outNeurons, float weightLimit) {
-		return createRandom(inNeurons, hiddenNeurons, outNeurons, -weightLimit,
-				weightLimit);
+	public static NeuronalNetwork createRandom(int inNeurons, int hiddenNeurons, int outNeurons, float weightLimit) {
+		return createRandom(inNeurons, hiddenNeurons, outNeurons, -weightLimit, weightLimit);
 	}
 
 	/**
@@ -27,10 +24,9 @@ public class NetworkCreator {
 	 * @param maxWeight
 	 * @return
 	 */
-	public static NeuronalNetwork createRandom(int inNeurons,
-			int hiddenNeurons, int outNeurons, float minWeight, float maxWeight) {
-		NeuronalNetwork rez = new NeuronalNetwork(inNeurons, hiddenNeurons,
-				outNeurons, new SigmoidFunction());
+	public static NeuronalNetwork createRandom(int inNeurons, int hiddenNeurons, int outNeurons, float minWeight,
+			float maxWeight) {
+		NeuronalNetwork rez = new NeuronalNetwork(inNeurons, hiddenNeurons, outNeurons, new SigmoidFunction());
 		// Random rnd = new Random(System.currentTimeMillis());
 		// initializez ponderile pentru intre stratul in si stratul hidden
 		for (int i = 0; i < inNeurons; i++) {
@@ -70,10 +66,9 @@ public class NetworkCreator {
 	 * @return
 	 */
 	private static float getRandomNumber(float minWeight, float maxWeight) {
-		float weight = (float) Math.random() * (maxWeight - minWeight)
-				+ minWeight;
-//		weight = 0.5f * (float) Math.random();
-//		 weight = 2.0f * ( (float) Math.random() - 0.5f ) * 0.6f ;
+		float weight = (float) Math.random() * (maxWeight - minWeight) + minWeight;
+		// weight = 0.5f * (float) Math.random();
+		// weight = 2.0f * ( (float) Math.random() - 0.5f ) * 0.6f ;
 		return weight;
 	}
 }

@@ -72,8 +72,7 @@ public class NetworkTrainer {
 	private float computeError(float[] networkOut, float[] expectedOut) {
 		float error = 0;
 		for (int i = 0; i < netw.getNumberOfOutputNeurons(); i++) {
-			error += (networkOut[i] - expectedOut[i])
-					* (networkOut[i] - expectedOut[i]);
+			error += (networkOut[i] - expectedOut[i]) * (networkOut[i] - expectedOut[i]);
 		}
 		return error;
 	}
@@ -85,16 +84,14 @@ public class NetworkTrainer {
 	 * @param result
 	 * @param expectedOut
 	 */
-	private void backPropagation(float[] input, PropagationResult result,
-			float[] expectedOut) {
+	private void backPropagation(float[] input, PropagationResult result, float[] expectedOut) {
 		float[] networkOut = result.getOutputs();
 
 		ActivationFunction activationF = netw.getActivationF();
 		// calculam eroarea pe stratul de iesire
 		float[] outputDelta = new float[networkOut.length];
 		for (int i = 0; i < networkOut.length; i++) {
-			outputDelta[i] = (expectedOut[i] - networkOut[i])
-					* activationF.fDeriv(networkOut[i]);
+			outputDelta[i] = (expectedOut[i] - networkOut[i]) * activationF.fDeriv(networkOut[i]);
 		}
 		// calculam eroarea pe stratul ascuns
 		float[] networkHiddenOut = result.getHiddenResults();
@@ -111,14 +108,12 @@ public class NetworkTrainer {
 		// actualizam ponderile hidenOutput
 		for (int i = 0; i < networkOut.length; i++) {
 			for (int j = 0; j < netw.getNumberOfHiddenNeurons(); j++) {
-				momentumHiOut[j][i] = learningRate * outputDelta[i]
-						* networkHiddenOut[j] + alfa * momentumHiOut[j][i];
+				momentumHiOut[j][i] = learningRate * outputDelta[i] * networkHiddenOut[j] + alfa * momentumHiOut[j][i];
 				float aux = netw.getWeigthHiddenOut(j, i) + momentumHiOut[j][i];
 				netw.setWeigthHiddenOut(j, i, aux);
 			}
 			// actualizez si pentru bias
-			momentumBiasHiOut[i] = learningRate * outputDelta[i] + alfa
-					* momentumBiasHiOut[i];
+			momentumBiasHiOut[i] = learningRate * outputDelta[i] + alfa * momentumBiasHiOut[i];
 			float aux = netw.getBiasInHidden(i) + momentumBiasHiOut[i];
 			netw.setBiasInHidden(i, aux);
 		}
@@ -126,14 +121,12 @@ public class NetworkTrainer {
 		// actualizam ponderile inputHidden
 		for (int i = 0; i < netw.getNumberOfHiddenNeurons(); i++) {
 			for (int j = 0; j < input.length; j++) {
-				momentumInHi[j][i] = learningRate * hiddenDelta[i] * input[j]
-						+ alfa * momentumInHi[j][i];
+				momentumInHi[j][i] = learningRate * hiddenDelta[i] * input[j] + alfa * momentumInHi[j][i];
 				float aux = netw.getWeigthInHidden(j, i) + momentumInHi[j][i];
 				netw.setWeigthInHidden(j, i, aux);
 			}
 			// actualizez si pentru bias
-			momentumBiasInHi[i] = learningRate * hiddenDelta[i] + alfa
-					* momentumBiasInHi[i];
+			momentumBiasInHi[i] = learningRate * hiddenDelta[i] + alfa * momentumBiasInHi[i];
 			float aux = netw.getBiasInInput(i) + momentumBiasInHi[i];
 			netw.setBiasInInput(i, aux);
 		}
@@ -151,8 +144,7 @@ public class NetworkTrainer {
 	 * @return true daca s-a obtinut errTrashold dorit, false daca s-a oprit
 	 *         antrenarea la nrMaxIterations
 	 */
-	public boolean train(float[][] in, float[][] expectedOut,
-			int nrMaxIterations, float errThreshold) {
+	public boolean train(float[][] in, float[][] expectedOut, int nrMaxIterations, float errThreshold) {
 		float err = 0;
 		for (int i = 0; i < nrMaxIterations; i++) {
 			err = trainInOrder(in, expectedOut, err);
@@ -177,8 +169,7 @@ public class NetworkTrainer {
 	 * @param err
 	 * @return
 	 */
-	private float trainInRandomOrder(float[][] in, float[][] expectedOut,
-			float err) {
+	private float trainInRandomOrder(float[][] in, float[][] expectedOut, float err) {
 		List<Integer> pozitions = new ArrayList<Integer>(in.length);
 		for (int j = 0; j < in.length; j++) {
 			pozitions.add(j);
@@ -217,13 +208,11 @@ public class NetworkTrainer {
 	 * @param errThreshold
 	 * @return
 	 */
-	public boolean train(TrainingData trData, int nrMaxIterations,
-			float errThreshold) {
+	public boolean train(TrainingData trData, int nrMaxIterations, float errThreshold) {
 		Random rnd = new Random();
 		for (int i = 0; i < nrMaxIterations; i++) {
 			float err = 0;
-			List<Integer> pozitions = new ArrayList<Integer>(trData
-					.getNumberInputExamples());
+			List<Integer> pozitions = new ArrayList<Integer>(trData.getNumberInputExamples());
 			for (int j = 0; j < trData.getNumberInputExamples(); j++) {
 				pozitions.add(j);
 			}
@@ -233,9 +222,8 @@ public class NetworkTrainer {
 				int random = rnd.nextInt(pozitions.size());
 				int poz = pozitions.get(random);
 				// calculez eroarea
-				err += train(trData.getInput(poz, netw
-						.getNumberOfInputNeurons()), trData.getExpectedResult(
-						poz, netw.getNumberOfInputNeurons()));
+				err += train(trData.getInput(poz, netw.getNumberOfInputNeurons()),
+						trData.getExpectedResult(poz, netw.getNumberOfInputNeurons()));
 			}
 			err = err / trData.getNumberInputExamples();
 			if (err < errThreshold) {

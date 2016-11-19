@@ -36,8 +36,7 @@ public class KMeans<ObjType extends ObjectWithFeature> {
 	 * @return
 	 */
 	private Centroid computeCentroid(List<ObjType> objects) {
-		double[] centroidFeatureValues = new double[objects.get(0)
-				.getFeatures().length];
+		double[] centroidFeatureValues = new double[objects.get(0).getFeatures().length];
 		for (int i = 0; i < centroidFeatureValues.length; i++) {
 			centroidFeatureValues[i] = 0;
 		}
@@ -54,8 +53,7 @@ public class KMeans<ObjType extends ObjectWithFeature> {
 		return new Centroid(centroidFeatureValues);
 	}
 
-	private double computeDistance(
-			List<? extends ObjectWithFeature> centroiziO,
+	private double computeDistance(List<? extends ObjectWithFeature> centroiziO,
 			List<? extends ObjectWithFeature> centroiziN) {
 		double d = 0;
 		for (int i = 0; i < centroiziO.size(); i++) {
@@ -64,17 +62,14 @@ public class KMeans<ObjType extends ObjectWithFeature> {
 		return d;
 	}
 
-	public Partition<ObjType> partition(List<ObjType> objects, int nrClusters,
-			ClusteringListener<ObjType> list) {
+	public Partition<ObjType> partition(List<ObjType> objects, int nrClusters, ClusteringListener<ObjType> list) {
 		double epsilon = 0.001;
-		List<? extends ObjectWithFeature> centroiziO = KMedoids
-				.pickRandomSeeds(nrClusters, objects);
+		List<? extends ObjectWithFeature> centroiziO = KMedoids.pickRandomSeeds(nrClusters, objects);
 		Partition<ObjType> part;
 		double centroidDist;
 		do {
 			// part = computePartition(centroiziO, objects);
-			part = (Partition<ObjType>) KMedoids.<ObjectWithFeature> computePartition(centroiziO, objects,
-							dist);
+			part = (Partition<ObjType>) KMedoids.<ObjectWithFeature>computePartition(centroiziO, objects, dist);
 			if (list != null) {
 				list.intermediatePartition(part);
 			}

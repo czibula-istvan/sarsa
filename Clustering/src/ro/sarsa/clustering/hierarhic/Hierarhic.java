@@ -18,20 +18,17 @@ public class Hierarhic<T> {
 	private HierarhicCache<T> cache = new HierarhicCache<T>();
 
 	public Hierarhic(LinkageMetric<T> lm, List<T> patCand, int nrDesiredClusters) {
-		this(lm, patCand, new NumberOfClustersStopCondition<T>(
-				nrDesiredClusters));
+		this(lm, patCand, new NumberOfClustersStopCondition<T>(nrDesiredClusters));
 	}
 
-	public Hierarhic(LinkageMetric<T> lm, List<T> objs,
-			ClusteringStopCondition<T> stopC) {
+	public Hierarhic(LinkageMetric<T> lm, List<T> objs, ClusteringStopCondition<T> stopC) {
 		this.objects = objs;
 		linkMetric = lm;
 		this.stopC = stopC;
 	}
 
 	public Hierarhic(IDistance<T> d, List<T> patCand, int nrDesiredClusters) {
-		this(new MaxLinkageMetric<T>(d), patCand,
-				new NumberOfClustersStopCondition<T>(nrDesiredClusters));
+		this(new MaxLinkageMetric<T>(d), patCand, new NumberOfClustersStopCondition<T>(nrDesiredClusters));
 
 		// linkMetric = new MaxLinkageMetric<T>(d);
 		// linkMetric = new MinLinkageMetric<T>(d);
@@ -59,12 +56,12 @@ public class Hierarhic<T> {
 	 * 
 	 * @param part
 	 */
-	private void hierarhicStepNoCache(Partition<T> part) {		
+	private void hierarhicStepNoCache(Partition<T> part) {
 		int nrClusters = part.getNRClusters();
 		Cluster<T> minCl1 = part.get(0);
 		Cluster<T> minCl2 = part.get(1);
 		double dmin = dist(minCl1, minCl2, null, Double.MAX_VALUE);
-		
+
 		// search for the pair of clusters with minimum distance
 		for (int i = 0; i < nrClusters - 1; i++) {
 			Cluster<T> cl1 = part.get(i);
@@ -81,7 +78,7 @@ public class Hierarhic<T> {
 		Cluster<T> c = new Cluster<T>(minCl1, minCl2);
 		part.delete(minCl1);
 		part.delete(minCl2);
-		part.add(c);		
+		part.add(c);
 	}
 
 	private void hierarhicStep(Partition<T> part, ClusteringListener<T> list) {
@@ -134,21 +131,17 @@ public class Hierarhic<T> {
 		part.add(c);
 		cache.partitionChanges(minCl1, minCl2, c);
 		long timp = (System.currentTimeMillis() - tm);
-		System.out.println("NR clusteri in partitia curenta:"
-				+ part.getNRClusters() + " timp:" + timp);
+		System.out.println("NR clusteri in partitia curenta:" + part.getNRClusters() + " timp:" + timp);
 
 	}
 
-	private void notifyToBeMerged(Partition<T> part, Cluster<T> minCl1,
-			Cluster<T> minCl2, ClusteringListener<T> list) {
+	private void notifyToBeMerged(Partition<T> part, Cluster<T> minCl1, Cluster<T> minCl2, ClusteringListener<T> list) {
 		if (list != null && list instanceof HierarhicClusteringListener) {
-			((HierarhicClusteringListener<T>) list).clustersToBeMerged(part,
-					minCl1, minCl2);
+			((HierarhicClusteringListener<T>) list).clustersToBeMerged(part, minCl1, minCl2);
 		}
 	}
 
-	private double dist(Cluster<T> a, Cluster<T> b,
-			Map<Cluster<T>, Double> cacheLine, double currentMin) {
+	private double dist(Cluster<T> a, Cluster<T> b, Map<Cluster<T>, Double> cacheLine, double currentMin) {
 		Double rez = cache.getLMCache(cacheLine, b);
 		if (rez != null) {
 			return rez;

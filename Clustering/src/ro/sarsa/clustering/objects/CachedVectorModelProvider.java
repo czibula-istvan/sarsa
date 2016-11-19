@@ -7,7 +7,6 @@ package ro.sarsa.clustering.objects;
 import java.util.HashMap;
 import java.util.Map;
 
-
 /**
  *
  * @author istvan

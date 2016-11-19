@@ -8,7 +8,6 @@ public class PermutationState extends State implements Comparable {
 	public PermutationState(short[] sir) {
 		this.sir = sir;
 	}
-		
 
 	@Override
 	public String toString() {

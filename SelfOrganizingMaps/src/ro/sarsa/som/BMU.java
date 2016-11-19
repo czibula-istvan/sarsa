@@ -50,15 +50,14 @@ public class BMU {
 		return distToInput;
 	}
 
-	public static BMU computeBestMatchingUnit(double[] input,
-			SOMTopology comptationL, IDistance<double[]> dist, Object label) {
+	public static BMU computeBestMatchingUnit(double[] input, SOMTopology comptationL, IDistance<double[]> dist,
+			Object label) {
 		BMU rez = computeBestMatchingUnit(input, comptationL, dist);
 		rez.setLabel(label);
 		return rez;
 	}
 
-	public static BMU computeBestMatchingUnit(double[] input,
-			SOMTopology comptationL, IDistance<double[]> dist) {
+	public static BMU computeBestMatchingUnit(double[] input, SOMTopology comptationL, IDistance<double[]> dist) {
 		double minDist = Double.MAX_VALUE;// distanta minima
 		SOMNeuron bmuN = null;// neuronul castigator
 		int nrNeurons = comptationL.getNrNeurons();
@@ -81,12 +80,10 @@ public class BMU {
 	 * @param dist
 	 * @return
 	 */
-	public static List<BMU> getBMUS(SOMTrainData trD, SOM som,
-			IDistance<double[]> dist) {
+	public static List<BMU> getBMUS(SOMTrainData trD, SOM som, IDistance<double[]> dist) {
 		List<BMU> bmus = new ArrayList<BMU>(trD.size());
 		for (int i = 0; i < trD.size(); i++) {
-			bmus.add(BMU.computeBestMatchingUnit(trD.get(i), som.getTopo(),
-					dist, trD.getLabel(i)));
+			bmus.add(BMU.computeBestMatchingUnit(trD.get(i), som.getTopo(), dist, trD.getLabel(i)));
 			// computeBestMatchingUnit(trD.get(i), trD.getLabel(i))
 			// bmus.add(BMU.computeBestMatchingUnit(trD.get(i), som.getTopo(),
 			// dist));

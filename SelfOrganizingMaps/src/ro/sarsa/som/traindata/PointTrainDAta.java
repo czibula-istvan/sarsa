@@ -1,7 +1,5 @@
 package ro.sarsa.som.traindata;
 
-import ro.sarsa.som.traindata.SOMTrainData;
-
 public class PointTrainDAta implements SOMTrainData {
 
 	@Override

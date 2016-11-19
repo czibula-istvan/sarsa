@@ -28,13 +28,10 @@ public class DavisBoudlinMetric<T> implements PartitionMetric<T> {
 			for (int j = i + 1; j < currentPart.getNRClusters(); j++) {
 				Cluster<T> cl1 = currentPart.get(i);
 				Cluster<T> cl2 = currentPart.get(j);
-				double[] cl1Centre = MetricUtils.computeClusterCenter(cl1,
-						vectModel);
-				double[] cl2Centre = MetricUtils.computeClusterCenter(cl2,
-						vectModel);
-				double val = (MetricUtils.computeAverageObjectDistance(
-						cl1Centre, cl1, vectModel) + MetricUtils
-						.computeAverageObjectDistance(cl2Centre, cl2, vectModel))
+				double[] cl1Centre = MetricUtils.computeClusterCenter(cl1, vectModel);
+				double[] cl2Centre = MetricUtils.computeClusterCenter(cl2, vectModel);
+				double val = (MetricUtils.computeAverageObjectDistance(cl1Centre, cl1, vectModel)
+						+ MetricUtils.computeAverageObjectDistance(cl2Centre, cl2, vectModel))
 						/ dist.distance(cl1Centre, cl2Centre);
 				if (val > max) {
 					max = val;

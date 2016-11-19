@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-
 public class GAAlgorithm {
 	private ChromosomeModel indCr;
 	private Random rnd = new Random();
@@ -38,7 +37,7 @@ public class GAAlgorithm {
 
 	public List<Chromosome> evolve(List<Chromosome> population) {
 		FitnessValues fitness = new FitnessValues(indCr, population);
-		
+
 		int popSize = population.size();
 		List<Chromosome> newPopulation = new ArrayList<>(popSize);
 		if (elitismPerc > 0) {
@@ -65,13 +64,13 @@ public class GAAlgorithm {
 	public Chromosome solve(int dimPopulatie, int nrIteratii) {
 		int i = 0;
 		List<Chromosome> pop = generateRandomPolulation(dimPopulatie);
-		
+
 		while (i < nrIteratii) {
 			i++;
 			List<Chromosome> newPop = evolve(pop);
 			System.out.println(i);
 			pop = newPop;
-			
+
 		}
 		FitnessValues fv = new FitnessValues(indCr, pop);
 		return fv.getBest();

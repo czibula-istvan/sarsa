@@ -53,8 +53,7 @@ public class History {
 		// return s.toString();
 		StringBuffer s = new StringBuffer();
 		for (int i = 0; i < states.size() - 1; i++)
-			s.append(states.get(i)).append("-").append(actions.get(i))
-					.append("-");
+			s.append(states.get(i)).append("-").append(actions.get(i)).append("-");
 		s.append(states.get(states.size() - 1));
 		return s.toString();
 	}

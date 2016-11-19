@@ -60,8 +60,7 @@ public class HierarhicCache<T> {
 	private Cluster<T> removedCl2;
 	private Cluster<T> addedCl;
 
-	public void partitionChanges(Cluster<T> removed1, Cluster<T> removed2,
-			Cluster<T> added) {
+	public void partitionChanges(Cluster<T> removed1, Cluster<T> removed2, Cluster<T> added) {
 		removedCl1 = removed1;
 		removedCl2 = removed2;
 		addedCl = added;
@@ -74,8 +73,7 @@ public class HierarhicCache<T> {
 		a.setLabel(new MinCacheItem(dmin, minCL));
 	}
 
-	public MinCacheItem getMinFromCache(Cluster<T> a, LinkageMetric<T> lm,
-			double currentMin) {
+	public MinCacheItem getMinFromCache(Cluster<T> a, LinkageMetric<T> lm, double currentMin) {
 
 		// MinCacheItem cacheItem = minCache.get(a);
 		MinCacheItem cacheItem = (MinCacheItem) a.getLabel();

@@ -18,10 +18,8 @@ public class DunnMetric<T> implements PartitionMetric<T> {
 		double max = 0;
 		for (int k = 0; k < currentPart.getNRClusters(); k++) {
 			Cluster<T> cl = currentPart.get(k);
-			double[] clCentre = MetricUtils.computeClusterCenter(cl,
-					vectModel);
-			double val = MetricUtils.computeAverageObjectDistance(
-					clCentre, cl, vectModel);
+			double[] clCentre = MetricUtils.computeClusterCenter(cl, vectModel);
+			double val = MetricUtils.computeAverageObjectDistance(clCentre, cl, vectModel);
 			if (max < val) {
 				max = val;
 			}
@@ -36,10 +34,8 @@ public class DunnMetric<T> implements PartitionMetric<T> {
 				}
 				Cluster<T> cl1 = currentPart.get(i);
 				Cluster<T> cl2 = currentPart.get(j);
-				double[] cl1Centre = MetricUtils.computeClusterCenter(
-						cl1, vectModel);
-				double[] cl2Centre = MetricUtils.computeClusterCenter(
-						cl2, vectModel);
+				double[] cl1Centre = MetricUtils.computeClusterCenter(cl1, vectModel);
+				double[] cl2Centre = MetricUtils.computeClusterCenter(cl2, vectModel);
 				double val = dist.distance(cl1Centre, cl2Centre) / max;
 				if (min2 > val) {
 					min2 = val;

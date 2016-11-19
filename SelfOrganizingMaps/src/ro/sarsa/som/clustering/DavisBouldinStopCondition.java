@@ -23,8 +23,7 @@ public class DavisBouldinStopCondition<T> implements ClusteringStopCondition<T> 
 	private SilhouetteMetric<T> silMetric;
 	private GabiMetric<T> gaMetric;
 
-	public DavisBouldinStopCondition(int nrDesiredClusters,
-			VectorModelProvider<T> vectModel) {
+	public DavisBouldinStopCondition(int nrDesiredClusters, VectorModelProvider<T> vectModel) {
 		this.nrDesiredClusters = nrDesiredClusters;
 		this.vectModel = vectModel;
 		dunnMetric = new DunnMetric<T>(vectModel);
@@ -36,11 +35,11 @@ public class DavisBouldinStopCondition<T> implements ClusteringStopCondition<T> 
 	@Override
 	public boolean isStopConditionReached(Partition<T> currentPart) {
 
-//		if (currentPart.getSmalestCluster().getNRObjs() == 1) {
-//			System.out.println(currentPart.getNRClusters()
-//					+ " avem cluster cu 1 element");
-//			return nrPArtitionReached(currentPart);
-//		}
+		// if (currentPart.getSmalestCluster().getNRObjs() == 1) {
+		// System.out.println(currentPart.getNRClusters()
+		// + " avem cluster cu 1 element");
+		// return nrPArtitionReached(currentPart);
+		// }
 
 		double db = davBouMetric.compute(currentPart);
 		db = ((int) (db * 10)) / 10d;
@@ -63,8 +62,7 @@ public class DavisBouldinStopCondition<T> implements ClusteringStopCondition<T> 
 	}
 
 	private boolean nrPArtitionReached(Partition<T> currentPart) {
-		return currentPart.getNRClusters() == 1
-				|| currentPart.getNRClusters() == nrDesiredClusters;
+		return currentPart.getNRClusters() == 1 || currentPart.getNRClusters() == nrDesiredClusters;
 	}
 
 }

@@ -45,7 +45,5 @@ public class FilterdTrainingData implements SOMTrainData {
 	public Object getLabel(int inputIndex) {
 		return td.getLabel(inputIndex);
 	}
-	
-	
 
 }

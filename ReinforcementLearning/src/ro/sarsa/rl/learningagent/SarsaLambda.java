@@ -14,8 +14,7 @@ public class SarsaLambda extends ReinforcementLearning {
 
 	private EligibilityTrace elTrace;
 
-	public SarsaLambda(Enviroment env, int maxSteps,
-			EligibilityTraceType traceType, double learningRate,
+	public SarsaLambda(Enviroment env, int maxSteps, EligibilityTraceType traceType, double learningRate,
 			double discountFactor, double lambda) {
 		super(env, maxSteps, learningRate, discountFactor);
 		this.lambda = lambda;
@@ -44,8 +43,7 @@ public class SarsaLambda extends ReinforcementLearning {
 			double reward = env.takeActionGiveReward(hist, currentAction);
 			State newState = env.getCurrentState();
 			Action newAction = policy.chooseAction(q, env, null);
-			updateQValues(currentAction, cState, reward, newState, newAction,
-					hist);
+			updateQValues(currentAction, cState, reward, newState, newAction, hist);
 			currentAction = newAction;
 		} while (!env.isFinalState(hist) && noSteps <= maxSteps);
 		hist.add(env.getCurrentState());
@@ -92,11 +90,10 @@ public class SarsaLambda extends ReinforcementLearning {
 	// for all the states from the environment - only if the environment is
 	// known
 
-	private void updateQValues(Action currentAction, State cState,
-			double reward, State newState, Action newAction, History hist) {
+	private void updateQValues(Action currentAction, State cState, double reward, State newState, Action newAction,
+			History hist) {
 
-		double tdError = reward + gama * q.get(newState, newAction)
-				- q.get(cState, currentAction);
+		double tdError = reward + gama * q.get(newState, newAction) - q.get(cState, currentAction);
 
 		elTrace.update(cState, currentAction, 1);
 

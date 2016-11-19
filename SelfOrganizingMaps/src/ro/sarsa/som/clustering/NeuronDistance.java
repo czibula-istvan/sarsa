@@ -7,8 +7,7 @@ import ro.sarsa.som.SOMNeuron;
 import ro.sarsa.som.topology.SOMTopology;
 import ro.sarsa.som.umatrix.SOMUMatrix;
 
-public class NeuronDistance implements IDistance<SOMNeuron>,
-		VectorModelProvider<SOMNeuron> {
+public class NeuronDistance implements IDistance<SOMNeuron>, VectorModelProvider<SOMNeuron> {
 	private SOMUMatrix umatrix;
 	private SOMTopology topo;
 	private IDistance<double[]> dist = new EuclideanDistance();

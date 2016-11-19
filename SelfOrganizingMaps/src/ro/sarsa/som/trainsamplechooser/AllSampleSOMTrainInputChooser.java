@@ -1,6 +1,5 @@
 package ro.sarsa.som.trainsamplechooser;
 
-
 /**
  * La fiecare pas de epoca se folosesc toate sampelurile
  *

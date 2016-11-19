@@ -18,7 +18,6 @@ import ro.sarsa.som.SOM;
 import ro.sarsa.som.SOMTrainingListener;
 import ro.sarsa.som.Trainer2Phase;
 import ro.sarsa.som.testapps.Draw2DNetworkNet;
-import ro.sarsa.som.testapps.Test1Som;
 import ro.sarsa.som.testapps.TrainIterationSnapshoot;
 import ro.sarsa.som.topology.Latice2DSOMTopology;
 import ro.sarsa.som.traindata.RandomTrainingData;
@@ -41,8 +40,7 @@ public class TestFuzzyPoints extends JPanel implements SOMTrainingListener {
 		// desenez fiecare neuron
 		int w = getWidth() - 10;
 		int h = getHeight() - 10;
-		drawSOM.drawNetwork(g, w, h, som, new TrainIterationSnapshoot(bmu,
-				input, neighbors, iteration));
+		drawSOM.drawNetwork(g, w, h, som, new TrainIterationSnapshoot(bmu, input, neighbors, iteration));
 	}
 
 	public static void main(String[] args) {
@@ -73,11 +71,9 @@ public class TestFuzzyPoints extends JPanel implements SOMTrainingListener {
 						// 0.7,
 						// testSom);
 
-						Trainer2Phase.train2Phase(som, 3000,
-								new RandomTrainingData(2, -1, 1), 0.7,
+						Trainer2Phase.train2Phase(som, 3000, new RandomTrainingData(2, -1, 1), 0.7,
 								topo.getMaxRadius() / 3, testSom);
-						System.out.println("Time:"
-								+ (System.currentTimeMillis() - time));
+						System.out.println("Time:" + (System.currentTimeMillis() - time));
 						// som.train(3000, new PointTrainDAta(), 0.7, testSom);
 					}
 
@@ -87,8 +83,7 @@ public class TestFuzzyPoints extends JPanel implements SOMTrainingListener {
 	}
 
 	@Override
-	public void trainStepPerformed(int iteration, double[] input, BMU bmu,
-			List<NeighborSOMNeuron> neighbors) {
+	public void trainStepPerformed(int iteration, double[] input, BMU bmu, List<NeighborSOMNeuron> neighbors) {
 		// this.bmu = bmu;
 		// this.neighbors = neighbors;
 		// this.input = input;
