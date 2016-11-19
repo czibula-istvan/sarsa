@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/sbse~source-code-repository/!svn/ver/1/Clustering/src/ro/sarsa/clustering/distances
+END
+EuclidianDistanceNoSqrt.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/sbse~source-code-repository/!svn/ver/1/Clustering/src/ro/sarsa/clustering/distances/EuclidianDistanceNoSqrt.java
+END
+EuclidianObjectDistance.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/sbse~source-code-repository/!svn/ver/4/Clustering/src/ro/sarsa/clustering/distances/EuclidianObjectDistance.java
+END
+EuclideanDistance.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/sbse~source-code-repository/!svn/ver/1/Clustering/src/ro/sarsa/clustering/distances/EuclideanDistance.java
+END
+EuclidianDistanceFeature.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/sbse~source-code-repository/!svn/ver/4/Clustering/src/ro/sarsa/clustering/distances/EuclidianDistanceFeature.java
+END
+ManhattanDistance.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/sbse~source-code-repository/!svn/ver/1/Clustering/src/ro/sarsa/clustering/distances/ManhattanDistance.java
+END
+EuclideanDistance.class
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/sbse~source-code-repository/!svn/ver/1/Clustering/src/ro/sarsa/clustering/distances/EuclideanDistance.class
+END
+CachedObjectDistance.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/sbse~source-code-repository/!svn/ver/1/Clustering/src/ro/sarsa/clustering/distances/CachedObjectDistance.java
+END
+ManhattanDistance.class
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/sbse~source-code-repository/!svn/ver/1/Clustering/src/ro/sarsa/clustering/distances/ManhattanDistance.class
+END

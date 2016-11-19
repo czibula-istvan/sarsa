@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/sbse~source-code-repository/!svn/ver/4/Clustering/src/ro/sarsa/clustering/objects
+END
+CachedVectorModelProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/sbse~source-code-repository/!svn/ver/4/Clustering/src/ro/sarsa/clustering/objects/CachedVectorModelProvider.java
+END
+SimpleObjectWithFeature.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/sbse~source-code-repository/!svn/ver/4/Clustering/src/ro/sarsa/clustering/objects/SimpleObjectWithFeature.java
+END
+ScaledVectorModelProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/sbse~source-code-repository/!svn/ver/4/Clustering/src/ro/sarsa/clustering/objects/ScaledVectorModelProvider.java
+END
+ObjectWithFeature.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/sbse~source-code-repository/!svn/ver/4/Clustering/src/ro/sarsa/clustering/objects/ObjectWithFeature.java
+END
+VectorModelProvider.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/sbse~source-code-repository/!svn/ver/4/Clustering/src/ro/sarsa/clustering/objects/VectorModelProvider.java
+END

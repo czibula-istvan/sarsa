@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/sbse~source-code-repository/!svn/ver/1/Clustering/src/ro/sarsa/clustering/metrics
+END
+PartitionMetric.class
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/sbse~source-code-repository/!svn/ver/1/Clustering/src/ro/sarsa/clustering/metrics/PartitionMetric.class
+END
+MetricUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/sbse~source-code-repository/!svn/ver/4/Clustering/src/ro/sarsa/clustering/metrics/MetricUtils.java
+END
+GabiMetric.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/sbse~source-code-repository/!svn/ver/4/Clustering/src/ro/sarsa/clustering/metrics/GabiMetric.java
+END
+DavisBoudlinMetric.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/sbse~source-code-repository/!svn/ver/4/Clustering/src/ro/sarsa/clustering/metrics/DavisBoudlinMetric.java
+END
+DunnMetric.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/sbse~source-code-repository/!svn/ver/4/Clustering/src/ro/sarsa/clustering/metrics/DunnMetric.java
+END
+MetricUtils.class
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/sbse~source-code-repository/!svn/ver/1/Clustering/src/ro/sarsa/clustering/metrics/MetricUtils.class
+END
+SilhouetteMetric.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/sbse~source-code-repository/!svn/ver/4/Clustering/src/ro/sarsa/clustering/metrics/SilhouetteMetric.java
+END
+GabiMetric.class
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/sbse~source-code-repository/!svn/ver/1/Clustering/src/ro/sarsa/clustering/metrics/GabiMetric.class
+END
+DavisBoudlinMetric.class
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/sbse~source-code-repository/!svn/ver/1/Clustering/src/ro/sarsa/clustering/metrics/DavisBoudlinMetric.class
+END
+DunnMetric.class
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/sbse~source-code-repository/!svn/ver/1/Clustering/src/ro/sarsa/clustering/metrics/DunnMetric.class
+END
+PartitionMetric.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/sbse~source-code-repository/!svn/ver/1/Clustering/src/ro/sarsa/clustering/metrics/PartitionMetric.java
+END
+SilhouetteMetric.class
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/sbse~source-code-repository/!svn/ver/1/Clustering/src/ro/sarsa/clustering/metrics/SilhouetteMetric.class
+END

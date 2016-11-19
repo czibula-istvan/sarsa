@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/sbse~source-code-repository/!svn/ver/1/Clustering/src/ro/sarsa/clustering
+END
+ClusteringMethod.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/sbse~source-code-repository/!svn/ver/4/Clustering/src/ro/sarsa/clustering/ClusteringMethod.java
+END
+Cluster.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/sbse~source-code-repository/!svn/ver/4/Clustering/src/ro/sarsa/clustering/Cluster.java
+END
+IDistance.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/sbse~source-code-repository/!svn/ver/1/Clustering/src/ro/sarsa/clustering/IDistance.java
+END
+ClusteringListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/sbse~source-code-repository/!svn/ver/1/Clustering/src/ro/sarsa/clustering/ClusteringListener.java
+END
+Partition.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/sbse~source-code-repository/!svn/ver/4/Clustering/src/ro/sarsa/clustering/Partition.java
+END
