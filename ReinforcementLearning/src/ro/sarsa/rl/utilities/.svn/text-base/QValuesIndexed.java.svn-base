@@ -1,0 +1,118 @@
+package ro.sarsa.rl.utilities;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import ro.sarsa.rl.action.Action;
+import ro.sarsa.rl.action.IndexedAction;
+import ro.sarsa.rl.enviroment.State;
+
+/**
+ * Optimized for actions that implements IndexedAction interface
+ * 
+ * @author istvan
+ * 
+ */
+public class QValuesIndexed extends AbstractQValues {
+
+	private Map<State, double[]> values;
+	private double defVal;
+	private int nrTotalActions;
+
+	public QValuesIndexed(int nrTotalActions) {
+		this.nrTotalActions = nrTotalActions;
+		initQValues();
+	}
+
+	public void initQValues() {
+		values = new HashMap<State, double[]>();
+	}
+
+	public void resetTo(double val) {
+		initQValues();
+		defVal = val;
+	}
+
+	public double get(State state, Action act) {
+		double[] act2vals = values.get(state);
+		if (act2vals == null) {
+			return defVal;
+		}
+		return act2vals[((IndexedAction) act).getIndex()];
+	}
+
+	public void set(State state, Action act, double val) {
+		double[] act2vals = values.get(state);
+		if (act2vals == null) {
+			act2vals = initact2Vals();
+			values.put(state, act2vals);
+		}
+		act2vals[((IndexedAction) act).getIndex()] = val;
+	}
+
+	public void add(State state, Action act, double val) {
+		double[] act2vals = values.get(state);
+		if (act2vals == null) {
+			act2vals = initact2Vals();
+			values.put(state, act2vals);
+		}
+		act2vals[((IndexedAction) act).getIndex()] += val;
+	}
+
+	private double[] initact2Vals() {
+		double[] act2vals;
+		act2vals = new double[nrTotalActions];
+		for (int i = 0; i < nrTotalActions; i++) {
+			act2vals[i] = defVal;
+		}
+		return act2vals;
+	}
+
+	public double getMaxValue(State state, List<Action> possibleActions) {
+		double[] act2vals = values.get(state);
+		if (act2vals == null) {
+			return defVal;
+		}
+
+		double max = act2vals[((IndexedAction) possibleActions.get(0))
+				.getIndex()];
+		for (int i = 1; i < possibleActions.size(); i++) {
+			double val = act2vals[((IndexedAction) possibleActions.get(i))
+					.getIndex()];
+			if (max < val) {
+				max = val;
+			}
+		}
+		return max;
+	}
+
+	public Action getMax(State state, List<Action> possibleActions) {
+		double[] act2vals = values.get(state);
+		if (act2vals == null) {
+			return possibleActions.get(0);
+		}
+
+		double max = act2vals[((IndexedAction) possibleActions.get(0))
+				.getIndex()];
+		Action pozMax = possibleActions.get(0);
+		for (int i = 1; i < possibleActions.size(); i++) {
+			double val = act2vals[((IndexedAction) possibleActions.get(i))
+					.getIndex()];
+			if (max < val) {
+				max = val;
+				pozMax = possibleActions.get(i);
+			}
+		}
+		return pozMax;
+	}
+
+	public Iterator<State> visitedStates() {
+		return values.keySet().iterator();
+	}
+
+	public int getNrVisitedStates() {
+		return values.keySet().size();
+	}
+}

@@ -1,0 +1,60 @@
+package ro.sarsa.rl.learningagent;
+
+import ro.sarsa.rl.action.Action;
+import ro.sarsa.rl.actionselectionpolicy.ActionSelectionPolicy;
+import ro.sarsa.rl.actionselectionpolicy.EpsilonGreedyPolicy;
+import ro.sarsa.rl.enviroment.Enviroment;
+import ro.sarsa.rl.enviroment.State;
+
+/**
+ * Implements the QLearning algorithm
+ * 
+ * @author istvan
+ * 
+ */
+public class QLearning extends ReinforcementLearning {
+	private History hist = new History();
+
+	public QLearning(Enviroment env, int maxSteps, double learningRate,
+			double discountFactor) {
+		this(env, maxSteps, learningRate, discountFactor,
+				new EpsilonGreedyPolicy(0.1));
+	}
+
+	public QLearning(Enviroment env, int maxSteps, double learningRate,
+			double discountFactor, ActionSelectionPolicy policy) {
+		super(env, maxSteps, learningRate, discountFactor, policy);
+	}
+
+	public void initTraining(double initValue) {
+		q.resetTo(initValue);
+	}
+
+	public History epoch() {
+		hist.clear();
+		env.resetToInitialState();
+		int noSteps = 0;
+		do {
+			noSteps++;
+			State cState = env.getCurrentState();
+			Action currentAction = policy.chooseAction(q, env);
+
+			hist.add(env.getCurrentState(), currentAction);
+
+			double reward = env.takeActionGiveReward(hist, currentAction);
+
+			State newS = env.getCurrentState();
+
+			double qVal = q.get(cState, currentAction);
+			double maxQVal = q.getMaxValue(newS,
+					env.getPosibleActions(newS, null));
+			double tdError = reward + gama * maxQVal - qVal;
+			q.add(cState, currentAction, alfa * tdError);
+
+		} while (!env.isFinalState(hist) && noSteps <= maxSteps);
+
+		hist.add(env.getCurrentState());
+		return hist;
+	}
+
+}

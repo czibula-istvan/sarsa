@@ -1,0 +1,51 @@
+package ro.sarsa.rl.permutation;
+
+import ro.sarsa.rl.enviroment.State;
+
+public class PermutationState extends State {
+	private int[] sir;
+	private int lg;
+
+	public PermutationState(int[] sir, int lg) {
+		this.sir = sir;
+		this.lg = lg;
+	}
+
+	@Override
+	public String toString() {
+		StringBuffer sb = new StringBuffer("[");
+		for (int i = 0; i < lg; i++) {
+			sb.append(sir[i]).append(",");
+		}
+		sb.append("]");
+		return sb.toString();
+	}
+
+	public int[] getPermutation() {
+		return sir;
+	}
+
+	public int getPermutationLg() {
+		return lg;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		PermutationState s = (PermutationState) o;
+		if (s.lg != lg) {
+			return false;
+		}
+		for (int i = 0; i < lg; i++) {
+			if (s.sir[i] != sir[i]) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		return lg * 100 + (lg > 0 ? sir[0] : 0);
+	}
+
+}

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/rlsdk~rlsdk/!svn/ver/10/trunk/src/ro/sarsa/rl/utilities
+END
+QValuesIndexed.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/rlsdk~rlsdk/!svn/ver/10/trunk/src/ro/sarsa/rl/utilities/QValuesIndexed.java
+END
+AbstractQValues.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/rlsdk~rlsdk/!svn/ver/10/trunk/src/ro/sarsa/rl/utilities/AbstractQValues.java
+END
+QValuesMap.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/rlsdk~rlsdk/!svn/ver/10/trunk/src/ro/sarsa/rl/utilities/QValuesMap.java
+END

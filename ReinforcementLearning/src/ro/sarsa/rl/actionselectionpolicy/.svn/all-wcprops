@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/rlsdk~rlsdk/!svn/ver/13/trunk/src/ro/sarsa/rl/actionselectionpolicy
+END
+SoftMaxPolicy.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/rlsdk~rlsdk/!svn/ver/17/trunk/src/ro/sarsa/rl/actionselectionpolicy/SoftMaxPolicy.java
+END
+ActionSelectionPolicy.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/rlsdk~rlsdk/!svn/ver/6/trunk/src/ro/sarsa/rl/actionselectionpolicy/ActionSelectionPolicy.java
+END
+EpsilonSoftPolicy.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/rlsdk~rlsdk/!svn/ver/6/trunk/src/ro/sarsa/rl/actionselectionpolicy/EpsilonSoftPolicy.java
+END
+OptimalPolicy.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/rlsdk~rlsdk/!svn/ver/10/trunk/src/ro/sarsa/rl/actionselectionpolicy/OptimalPolicy.java
+END
+EpsilonGreedyPolicy.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/rlsdk~rlsdk/!svn/ver/13/trunk/src/ro/sarsa/rl/actionselectionpolicy/EpsilonGreedyPolicy.java
+END
