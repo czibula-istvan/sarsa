@@ -1,0 +1,38 @@
+10
+
+dir
+2
+https://svn.kenai.com/svn/sbse~source-code-repository/SelfOrganizingMaps/src/ro/sarsa
+https://svn.kenai.com/svn/sbse~source-code-repository
+
+
+
+2010-05-26T20:30:22.987424Z
+2
+istvan
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+37f051e8-d267-4ff3-90dd-e8093c6b229f
+
+fuzzysom
+dir
+
+
+
+add
+
+som
+dir
+

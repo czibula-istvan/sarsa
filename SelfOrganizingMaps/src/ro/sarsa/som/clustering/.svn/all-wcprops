@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/clustering
+END
+BMUClusteringStopCondition.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/clustering/BMUClusteringStopCondition.java
+END
+DavisBouldinStopCondition.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/clustering/DavisBouldinStopCondition.java
+END
+NeuronDistance.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/clustering/NeuronDistance.java
+END
+RefactoringSOMLinkageMetric.java
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/clustering/RefactoringSOMLinkageMetric.java
+END
+SOMClusteringListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/clustering/SOMClusteringListener.java
+END
+SOMClusterGUI.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/clustering/SOMClusterGUI.java
+END
+SOMClusteringRecursive.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/clustering/SOMClusteringRecursive.java
+END
+SOMClusteringUMatrix.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/clustering/SOMClusteringUMatrix.java
+END
+SOMClusteringHierarhic.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/clustering/SOMClusteringHierarhic.java
+END
+SOMClustering.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/clustering/SOMClustering.java
+END
+SOMClusteringKMedoids.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/clustering/SOMClusteringKMedoids.java
+END

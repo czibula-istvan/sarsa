@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/testapps
+END
+Test1Som.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/testapps/Test1Som.java
+END
+GenericSOMGUI.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/testapps/GenericSOMGUI.java
+END
+GenericSOMNetworkView.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/testapps/GenericSOMNetworkView.java
+END
+INetworkDraw.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/testapps/INetworkDraw.java
+END
+TestSOMColors.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/testapps/TestSOMColors.java
+END
+Draw2DNetworkNet.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/testapps/Draw2DNetworkNet.java
+END
+DrawColorSOMNetw.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/testapps/DrawColorSOMNetw.java
+END
+TrainIterationSnapshoot.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/testapps/TrainIterationSnapshoot.java
+END
+SomDrawDataBMUs.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/testapps/SomDrawDataBMUs.java
+END

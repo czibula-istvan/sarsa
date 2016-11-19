@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som
+END
+PrintIterationSOMListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/PrintIterationSOMListener.java
+END
+SOMTrainingListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/SOMTrainingListener.java
+END
+RandomSOMReainInputChooser.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/RandomSOMReainInputChooser.java
+END
+BMU.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/BMU.java
+END
+NeighborSOMNeuron.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/NeighborSOMNeuron.java
+END
+SOMTrainingListeners.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/SOMTrainingListeners.java
+END
+SOMNeuron.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/SOMNeuron.java
+END
+SOM.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/SOM.java
+END

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/trainsamplechooser
+END
+SOMTrainInputChooser.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/trainsamplechooser/SOMTrainInputChooser.java
+END
+EachSampleSOMTrainChooser.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/trainsamplechooser/EachSampleSOMTrainChooser.java
+END
+AllSampleSOMTrainInputChooser.java
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/trainsamplechooser/AllSampleSOMTrainInputChooser.java
+END

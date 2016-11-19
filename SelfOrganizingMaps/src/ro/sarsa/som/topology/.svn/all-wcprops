@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/topology
+END
+Latice2DSOMTopology.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/topology/Latice2DSOMTopology.java
+END
+RectangularTopology.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/topology/RectangularTopology.java
+END
+TorusSOMTopology.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/topology/TorusSOMTopology.java
+END
+SOMTopology.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/sbse~source-code-repository/!svn/ver/2/SelfOrganizingMaps/src/ro/sarsa/som/topology/SOMTopology.java
+END

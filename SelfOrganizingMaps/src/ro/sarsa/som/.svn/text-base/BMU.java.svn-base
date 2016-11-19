@@ -1,0 +1,25 @@
+package ro.sarsa.som;
+
+public class BMU {
+	private double dist = Double.MAX_VALUE;// distanta minima
+	private double[] input;
+	private SOMNeuron bmuN = null;// neuronul castigator
+
+	public BMU(SOMNeuron n, double dist, double[] input) {
+		this.bmuN = n;
+		this.dist = dist;
+		this.input = input;
+	}
+
+	public int getNeuronIndex() {
+		return bmuN.getIndex();
+	}
+
+	public SOMNeuron getNeuron() {
+		return bmuN;
+	}
+
+	public boolean equals(Object o) {
+		return bmuN == ((BMU) o).bmuN;
+	}
+}

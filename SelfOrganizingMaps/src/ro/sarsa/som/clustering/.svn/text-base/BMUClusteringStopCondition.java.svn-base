@@ -1,0 +1,69 @@
+package ro.sarsa.som.clustering;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import ro.sarsa.clustering.Cluster;
+import ro.sarsa.clustering.Partition;
+import ro.sarsa.clustering.hierarhic.ClusteringStopCondition;
+import ro.sarsa.som.BMU;
+import ro.sarsa.som.SOM;
+import ro.sarsa.som.SOMNeuron;
+import ro.sarsa.som.traindata.SOMTrainData;
+
+/**
+ * Verifica daca sunt clusteri care nu contin Neuroni care ies BMU pentru macar
+ * o intrare
+ *
+ * @author istvan
+ *
+ */
+public class BMUClusteringStopCondition implements
+		ClusteringStopCondition<SOMNeuron> {
+	private List<SOMNeuron> allBMUs;
+	private int desiredNRClusteri;
+
+	public BMUClusteringStopCondition(SOM som, SOMTrainData td,
+			int desiredNRClusteri) {
+		this.desiredNRClusteri = desiredNRClusteri;
+		this.allBMUs = computeAllBMUs(som, td);
+	}
+
+	private List<SOMNeuron> computeAllBMUs(SOM som, SOMTrainData td) {
+		List<SOMNeuron> rez = new ArrayList<SOMNeuron>();
+		for (int i = 0; i < td.size(); i++) {
+			BMU bmu = som.computeBestMatchingUnit(td.get(i));
+			if (!rez.contains(bmu.getNeuron())) {
+				rez.add(bmu.getNeuron());
+			}
+		}
+		return rez;
+	}
+
+	@Override
+	public boolean isStopConditionReached(Partition<SOMNeuron> currentPart) {
+		if (desiredNRClusteri > 0
+				&& currentPart.getNRClusters() == desiredNRClusteri) {
+			return true;
+		}
+
+		for (int i = 0; i < currentPart.getNRClusters(); i++) {
+			Cluster<SOMNeuron> cl = currentPart.get(i);
+			boolean containsBMU = false;
+			for (int j = 0; j < allBMUs.size(); j++) {
+				if (cl.contains(allBMUs.get(j))) {
+					containsBMU = true;
+					break;
+				}
+			}
+			if (!containsBMU) {
+				return false;// avem cluster care nu contine bmu
+			}
+		}
+		if (desiredNRClusteri > 0) {
+			return currentPart.getNRClusters() == desiredNRClusteri;
+		} else {
+			return true;
+		}
+	}
+}
