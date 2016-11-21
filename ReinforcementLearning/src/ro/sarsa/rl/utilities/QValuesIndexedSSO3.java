@@ -17,16 +17,27 @@ import ro.sarsa.rl.enviroment.State;
  * @author istvan
  * 
  */
-public class QValuesIndexedSSO2 extends AbstractQValues {
-
-	private Map<State, double[]> values;
+public class QValuesIndexedSSO3 extends AbstractQValues {
+    /**
+     * Eiter <State,double[]> or <State,SSO> - for a single value
+     */
+	private Map<State, Object> values;
 	private double defVal;
 	private int nrTotalActions;
 	private State sampleState;
-
-	public QValuesIndexedSSO2(int nrTotalActions, State sampleState) {
-		if (nrTotalActions<=2){
-			throw new IllegalArgumentException("Only work for more than 2 actions"); 
+	
+	private static final class SSO{
+	   final byte actIndex;
+	   double val;
+	   public SSO(short actIndex,double val){
+		this.actIndex = (byte) actIndex;
+		this.val = val;		   
+	   }
+	}
+	
+	public QValuesIndexedSSO3(int nrTotalActions, State sampleState) {
+		if (nrTotalActions>255){
+			throw new IllegalArgumentException("Only works for max 255 actionsf");
 		}
 		this.nrTotalActions = nrTotalActions;
 		this.sampleState = sampleState;
@@ -35,10 +46,10 @@ public class QValuesIndexedSSO2 extends AbstractQValues {
 
 	public void initQValues(State sampleState) {
 		if (sampleState instanceof Comparable) {
-			values = new TreeMap<State, double[]>();
+			values = new TreeMap<State, Object>();
 			// values =new ConcurrentSkipListMap<State, double[]>();
 		} else {
-			values = new HashMap<State, double[]>();
+			values = new HashMap<State, Object>();
 		}
 	}
 
@@ -48,96 +59,102 @@ public class QValuesIndexedSSO2 extends AbstractQValues {
 	}
 
 	public synchronized double get(State state, Action act) {
-		double[] act2vals = values.get(state);
+		Object act2vals = values.get(state);
 		if (act2vals == null) {
 			return defVal;
 		}
 		short actIndex = ((IndexedAction) act).getIndex();
 		// begin small size optimization
-		if (act2vals.length == 2) {
-			if ((short) act2vals[0] == actIndex) {
-				return act2vals[1];
+		if (act2vals instanceof SSO) {
+			if (((SSO)act2vals).actIndex == actIndex) {
+				return ((SSO)act2vals).val;
 			}
 			return defVal;
 		}
 		// end small size optimization
 
-		return act2vals[actIndex];
+		return ((double[])act2vals)[actIndex];
 	}
 
 	public synchronized void updateValue(State state, Action act, UpdateFunction updateF) {
-		double[] act2vals = values.get(state);
+		Object act2vals = values.get(state);
 		short actIndex = ((IndexedAction) act).getIndex();
 		if (act2vals == null) {
 			// begin small size optimization
-			values.put(state, new double[] { actIndex, updateF.update(defVal) });
+			values.put(state, new SSO(actIndex, updateF.update(defVal)));
 			return;
 			// end small size optimization
 		}
 
-		if (act2vals.length == nrTotalActions) {
-			act2vals[actIndex] = updateF.update(act2vals[actIndex]);
+		
+		if (act2vals instanceof double[]) {
+			double[] aux = (double[])act2vals; 
+			aux[actIndex] = updateF.update(aux[actIndex]);
 			return;
 		}
 		// begin small size optimization
-		if ((short) act2vals[0] == actIndex) {
-			act2vals[1] = updateF.update(act2vals[1]);
+		SSO sso = (SSO) act2vals;
+		if (sso.actIndex == actIndex) {
+			sso.val = updateF.update(sso.val);
 			return;
 		}
 		double[] newact2vals = initact2Vals();
-		newact2vals[(short) act2vals[0]] = act2vals[1];
+		newact2vals[sso.actIndex] = sso.val;
 		newact2vals[actIndex] = updateF.update(defVal);
 		values.put(state, newact2vals);
 		// end small size optimization
 	}
 
 	public synchronized void set(State state, Action act, double val) {
-		double[] act2vals = values.get(state);
+		Object act2vals = values.get(state);
 		short actIndex = ((IndexedAction) act).getIndex();
 		if (act2vals == null) {
 			// begin small size optimization
-			values.put(state, new double[] { actIndex, val });
+			values.put(state, new SSO ( actIndex, val ));
 			return;
 			// end small size optimization
 		}
 
-		if (act2vals.length == nrTotalActions) {
-			act2vals[actIndex] = val;
+		if (act2vals instanceof double[]) {			
+			((double[])act2vals)[actIndex] = val;
 			return;
 		}
+		
 		// begin small size optimization
-		if ((short) act2vals[0] == actIndex) {
-			act2vals[1] = val;
+		SSO sso = (SSO) act2vals;
+		if (sso.actIndex == actIndex) {
+			sso.val = val;
 			return;
 		}
 		double[] newact2vals = initact2Vals();
-		newact2vals[(short) act2vals[0]] = act2vals[1];
+		newact2vals[sso.actIndex] = sso.val;
 		newact2vals[actIndex] = val;
 		values.put(state, newact2vals);
 		// end small size optimization
 	}
 
 	public synchronized void add(State state, Action act, double val) {
-		double[] act2vals = values.get(state);
+		Object act2vals = values.get(state);
 		short actIndex = ((IndexedAction) act).getIndex();
 		if (act2vals == null) {
 			// begin small size optimization
-			values.put(state, new double[] { actIndex, defVal + val });
+			values.put(state, new SSO( actIndex, defVal + val ));
 			return;
 			// end small size optimization
 		}
 
-		if (act2vals.length == nrTotalActions) {
-			act2vals[actIndex] += val;
+		if (act2vals instanceof double[]) {	
+			((double[])act2vals)[actIndex] += val;
 			return;
 		}
 		// begin small size optimization
-		if ((short) act2vals[0] == actIndex) {
-			act2vals[1] += val;
+		SSO sso = (SSO) act2vals;
+		if (sso.actIndex == actIndex) {
+			sso.val += val;
 			return;
 		}
 		double[] newact2vals = initact2Vals();
-		newact2vals[(short) act2vals[0]] = act2vals[1];
+		newact2vals[sso.actIndex] = sso.val;
 		newact2vals[actIndex] = defVal + val;
 		values.put(state, newact2vals);
 		// end small size optimization
@@ -149,10 +166,10 @@ public class QValuesIndexedSSO2 extends AbstractQValues {
 		return act2vals;
 	}
 
-	private Action getforSmallOpt(List<Action> possibleActions, double[] index_val) {
+	private Action getforSmallOpt(List<Action> possibleActions, SSO sso) {
 		for (Action act : possibleActions) {
 			short actIndex = ((IndexedAction) act).getIndex();
-			if ((short) index_val[0] == actIndex) {
+			if (sso.actIndex == actIndex) {
 				return act;
 			}
 		}
@@ -160,15 +177,16 @@ public class QValuesIndexedSSO2 extends AbstractQValues {
 	}
 
 	public synchronized double getMaxValue(State state, List<Action> possibleActions) {
-		double[] act2vals = values.get(state);
+		Object act2vals = values.get(state);
 		if (act2vals == null) {
 			return defVal;
 		}
 
-		if (act2vals.length == nrTotalActions) {
-			double max = act2vals[((IndexedAction) possibleActions.get(0)).getIndex()];
+		if (act2vals instanceof double[]) {
+			double[] aux = (double[])act2vals;
+			double max = aux[((IndexedAction) possibleActions.get(0)).getIndex()];
 			for (int i = 1; i < possibleActions.size(); i++) {
-				double val = act2vals[((IndexedAction) possibleActions.get(i)).getIndex()];
+				double val = aux[((IndexedAction) possibleActions.get(i)).getIndex()];
 				if (max < val) {
 					max = val;
 				}
@@ -177,8 +195,9 @@ public class QValuesIndexedSSO2 extends AbstractQValues {
 		}
 
 		// begin small size optimization
-		if (getforSmallOpt(possibleActions, act2vals) != null) {
-			return act2vals[1];
+		SSO sso = (SSO) act2vals;
+		if (getforSmallOpt(possibleActions, sso) != null) {
+			return sso.val;
 		}
 		return defVal;
 		// end small size optimization
@@ -186,16 +205,17 @@ public class QValuesIndexedSSO2 extends AbstractQValues {
 	}
 
 	public synchronized Action getMax(State state, List<Action> possibleActions) {
-		double[] act2vals = values.get(state);
+		Object act2vals = values.get(state);
 		if (act2vals == null) {
 			return possibleActions.get(0);
 		}
 
-		if (act2vals.length == nrTotalActions) {
-			double max = act2vals[((IndexedAction) possibleActions.get(0)).getIndex()];
+		if (act2vals instanceof double[]) {
+			double[] aux = (double[])act2vals;
+			double max = aux[((IndexedAction) possibleActions.get(0)).getIndex()];
 			Action pozMax = possibleActions.get(0);
 			for (int i = 1; i < possibleActions.size(); i++) {
-				double val = act2vals[((IndexedAction) possibleActions.get(i)).getIndex()];
+				double val = aux[((IndexedAction) possibleActions.get(i)).getIndex()];
 				if (max < val) {
 					max = val;
 					pozMax = possibleActions.get(i);
@@ -205,7 +225,8 @@ public class QValuesIndexedSSO2 extends AbstractQValues {
 		}
 
 		// begin small size optimization
-		Action rez = getforSmallOpt(possibleActions, act2vals);
+		SSO sso = (SSO)act2vals;
+		Action rez = getforSmallOpt(possibleActions, sso);
 		if (rez == null) {
 			return possibleActions.get(0);
 		}
@@ -230,14 +251,15 @@ public class QValuesIndexedSSO2 extends AbstractQValues {
 		int histDefVals[] = new int[nrTotalActions];
 		int nrSSOVal = 0;
 		int nrTotalVals = 0;
-		Iterator<double[]> it = values.values().iterator();
+		Iterator it = values.values().iterator();
 		while (it.hasNext()) {
-			double[] qvals = it.next();
+			Object qvalsOrSSo = it.next();
 
-			if (qvals.length == 2) {
+			if (qvalsOrSSo instanceof SSO) {
 				nrSSOVal++;
 				continue;
 			}
+			double[] qvals = (double[])qvalsOrSSo;
 			nrTotalVals++;
 			int cateDef = 0;
 			for (int i = 0; i < qvals.length; i++) {
@@ -249,13 +271,13 @@ public class QValuesIndexedSSO2 extends AbstractQValues {
 			histDefVals[cateDef]++;
 
 		}
-		System.out.println(" totalVals " + nrTotalVals);
+		System.out.println(" totalVals " + nrTotalVals+" nrTotalActions:"+nrTotalActions);
 		System.out.println(" defaultVals " + nrDefVals + " percentDefVals "
 				+ (nrDefVals * 100.0) / (nrTotalVals * nrTotalActions));
 		System.out.println(" ssoVals " + nrSSOVal + " percentSSOVals " + (nrSSOVal * 100.0) / (values.size()));
 
 		for (int i = nrTotalActions-5; i < nrTotalActions-1; i++) {
-			System.out.println(i + " " + histDefVals[i] + " procent:" + (histDefVals[i] * 100.0) / (nrTotalVals));
+			System.out.println(i + " " + histDefVals[i] + " procent:" + (histDefVals[i] * 100.0) / (nrTotalVals)+ " procent total:" + (histDefVals[i] * 100.0) / (values.size()));
 		}
 	}
 }

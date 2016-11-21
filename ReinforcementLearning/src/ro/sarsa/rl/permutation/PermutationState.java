@@ -1,5 +1,7 @@
 package ro.sarsa.rl.permutation;
 
+import java.util.Arrays;
+
 import ro.sarsa.rl.enviroment.State;
 
 public class PermutationState extends State implements Comparable {
@@ -7,6 +9,11 @@ public class PermutationState extends State implements Comparable {
 
 	public PermutationState(short[] sir) {
 		this.sir = sir;
+	}
+
+	public PermutationState(PermutationState p, PermutationAction ac) {
+		sir = Arrays.copyOf(p.sir, p.getPermutationLg() + 1);
+		sir[p.getPermutationLg()] = ac.getIndex();
 	}
 
 	@Override
@@ -37,6 +44,7 @@ public class PermutationState extends State implements Comparable {
 				return -1;
 			}
 		}
+
 		// au acelasi lungime
 		int poz = 0;
 		while (poz < sir.length && s.sir[poz] == sir[poz]) {

@@ -14,6 +14,7 @@ import ro.sarsa.rl.enviroment.State;
 import ro.sarsa.rl.utilities.AbstractQValues;
 import ro.sarsa.rl.utilities.QValuesIndexed;
 import ro.sarsa.rl.utilities.QValuesIndexedSSO2;
+import ro.sarsa.rl.utilities.QValuesIndexedSSO3;
 import ro.sarsa.rl.utilities.QValuesMap;
 
 public abstract class ReinforcementLearning {
@@ -75,7 +76,8 @@ public abstract class ReinforcementLearning {
 		if (acts.get(0) instanceof IndexedAction) {
 			int totalNumberOfAction = ((IndexedAction) acts.get(0)).getTotalNumberOfAction();
 			if (totalNumberOfAction > 10) {
-				return new QValuesIndexedSSO2(totalNumberOfAction, env.getCurrentState());
+				return new QValuesIndexedSSO3(totalNumberOfAction, env.getCurrentState());
+//				return new QValuesIndexedSSO2(totalNumberOfAction, env.getCurrentState());
 				// return new QValuesIndexedSSO(totalNumberOfAction,
 				// env.getCurrentState());
 			}
